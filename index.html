@@ -34,13 +34,7 @@
       overflow-x: hidden;
     }
 
-    /* ─── Side rules ─── */
-    .side-rule {
-      position: fixed; top: 0; bottom: 0; width: 1px; z-index: 10; pointer-events: none;
-      background: linear-gradient(to bottom, transparent 0%, var(--rule) 15%, var(--rule) 85%, transparent 100%);
-    }
-    .side-rule--left  { left:  clamp(16px, 3.5vw, 52px); }
-    .side-rule--right { right: clamp(16px, 3.5vw, 52px); }
+
 
     /* ─── HERO ─── */
     .hero {
@@ -66,14 +60,14 @@
     }
 
     .hero-bg::after {
-      content: '';
+      content: \'\';
       position: absolute; inset: 0;
       background: linear-gradient(
         to bottom,
-        rgba(2,18,26,0.55) 0%,
-        rgba(2,18,26,0.30) 40%,
-        rgba(2,18,26,0.65) 75%,
-        rgba(2,18,26,0.98) 100%
+        rgba(2,12,18,0.72) 0%,
+        rgba(2,12,18,0.55) 35%,
+        rgba(2,12,18,0.78) 70%,
+        rgba(2,12,18,0.98) 100%
       );
     }
 
@@ -92,7 +86,7 @@
       width: clamp(280px, 45vw, 520px);
       margin-bottom: 32px;
       animation: fadeUp 1.4s cubic-bezier(0.16,1,0.3,1) both;
-      filter: brightness(0) invert(1);
+      mix-blend-mode: screen;
     }
 
     .hero-divider {
@@ -303,7 +297,7 @@
 
     .footer-logo {
       width: 160px; margin-bottom: 24px;
-      filter: brightness(0) invert(1); opacity: 0.35;
+      mix-blend-mode: screen; opacity: 0.35;
     }
 
     .footer-links {
@@ -335,18 +329,24 @@
     @media (max-width: 768px) {
       .cards-grid { grid-template-columns: 1fr; }
       .card { aspect-ratio: 4/3; }
-      .side-rule { display: none; }
       .photo-strip-text { padding: 0 32px; }
     }
     @media (max-width: 480px) {
       .hero-logo { width: 240px; }
     }
+
+    /* ─── Top / bottom rules ─── */
+    .top-rule, .bottom-rule {
+      position: fixed; left: 0; right: 0; height: 1px; z-index: 10; pointer-events: none;
+      background: linear-gradient(to right, transparent 0%, var(--rule) 20%, var(--rule) 80%, transparent 100%);
+    }
+    .top-rule { top: 0; }
+    .bottom-rule { bottom: 0; }
   </style>
 </head>
 <body>
-
-  <div class="side-rule side-rule--left"></div>
-  <div class="side-rule side-rule--right"></div>
+  <div class="top-rule"></div>
+  <div class="bottom-rule"></div>
 
   <!-- ── HERO ── -->
   <section class="hero">
