@@ -12,20 +12,22 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --gold: #B8975A;
-      --gold-light: #D4B483;
-      --gold-pale: #EDE0C8;
-      --cream: #F7F3EC;
-      --ink: #1A1714;
-      --ink-mid: #3D3730;
-      --ink-muted: #7A6F62;
-      --rule: rgba(184, 151, 90, 0.3);
+      --gold: #FFAE55;
+      --gold-light: #FFC77A;
+      --gold-pale: #FFE5C2;
+      --cream: #F0F7F8;
+      --ink: #021820;
+      --ink-mid: #02323D;
+      --ink-muted: #5A8A95;
+      --rule: rgba(255, 174, 85, 0.25);
+      --teal: #02394A;
+      --teal-mid: #024F63;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      background-color: var(--ink);
+      background-color: #021A20;
       color: var(--cream);
       font-family: 'Montserrat', sans-serif;
       font-weight: 300;
@@ -53,7 +55,7 @@
       transform: translateX(-50%);
       width: 900px;
       height: 900px;
-      background: radial-gradient(ellipse at center, rgba(184,151,90,0.07) 0%, transparent 70%);
+      background: radial-gradient(ellipse at center, rgba(2,58,69,0.35) 0%, transparent 70%);
       pointer-events: none;
       z-index: 0;
     }
@@ -250,7 +252,7 @@
     }
 
     .link-card {
-      background: rgba(26, 23, 20, 0.85);
+      background: rgba(2, 24, 32, 0.9);
       padding: 38px 32px;
       text-decoration: none;
       display: flex;
@@ -277,7 +279,7 @@
     }
 
     .link-card:hover {
-      background: rgba(184, 151, 90, 0.06);
+      background: rgba(255, 174, 85, 0.05);
     }
 
     .link-card:hover::before {
