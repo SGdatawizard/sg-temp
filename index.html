@@ -572,16 +572,16 @@
     .footer-center { order: -1; }
   }
 
-  /* Mobile up to 540px — single column */
+  /* Mobile up to 540px — single column, compact with scroll reveal */
   @media (max-width: 540px) {
     .announcement-bar { font-size: 9px; padding: 5px 10px; letter-spacing: 0.06em; }
     .announcement-bar em { font-size: 10px; }
     .announcement-bar span.dot { margin: 0 5px; }
-    .header { grid-template-columns: auto 1fr; padding: 10px 14px; }
+    .header { grid-template-columns: auto 1fr; padding: 6px 14px; }
     .header-right { display: none; }
-    .header-left img { height: 38px; }
-    .header-center .wordmark { font-size: 13px; letter-spacing: 0.1em; }
-    .header-center .tagline { font-size: 7.5px; letter-spacing: 0.12em; margin-top: 3px; }
+    .header-left img { height: 34px; }
+    .header-center .wordmark { font-size: 12px; letter-spacing: 0.1em; }
+    .header-center .tagline { font-size: 7px; letter-spacing: 0.12em; margin-top: 2px; }
     .hero { min-height: 260px; }
     .hero-content { padding: 0 18px; }
     .coming-soon-label { font-size: 8px; margin-bottom: 8px; }
@@ -594,11 +594,33 @@
     .hero-stat .label, .hero-stat .dates { font-size: 8.5px; }
     .categories { display: grid; grid-template-columns: 1fr; flex: none; }
     .category { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .category-image { height: 140px; }
-    .category:hover .category-image { height: 180px; }
-    .category-body { padding: 14px 18px 18px; }
-    .cat-title { font-size: 20px; }
-    .cat-desc { font-size: 12px; }
+    .category-image { height: 70px; transition: height 0.5s cubic-bezier(0.4,0,0.2,1), filter 0.45s ease, transform 0.45s ease; }
+    .category.expanded .category-image { height: 160px; filter: saturate(0.8) brightness(1); }
+    .category-body { padding: 10px 18px 12px; }
+    .cat-title { font-size: 18px; margin-bottom: 0; }
+    .cat-desc {
+      font-size: 11.5px;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      margin-bottom: 0;
+      transition: max-height 0.5s ease, opacity 0.5s ease, margin-bottom 0.4s ease;
+    }
+    .category.expanded .cat-desc {
+      max-height: 100px;
+      opacity: 1;
+      margin-bottom: 10px;
+    }
+    .cat-link {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.5s ease, opacity 0.5s ease;
+    }
+    .category.expanded .cat-link {
+      max-height: 30px;
+      opacity: 1;
+    }
     .footer { padding: 10px 14px; gap: 6px; }
     .footer-left, .footer-right a, .footer-center { font-size: 9.5px; }
   }
@@ -726,5 +748,20 @@
   </div>
 </footer>
 
+<script>
+  if (window.innerWidth <= 540) {
+    const cards = document.querySelectorAll('.category');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('expanded'), 120);
+        } else {
+          entry.target.classList.remove('expanded');
+        }
+      });
+    }, { threshold: 0.45 });
+    cards.forEach(card => observer.observe(card));
+  }
+</script>
 </body>
 </html>
