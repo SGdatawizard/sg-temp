@@ -480,25 +480,50 @@
 
   /* Laptop 1280-1440px */
   @media (max-width: 1440px) and (min-width: 1201px) {
-    .header { padding: 10px 30px; }
-    .header-left img { height: 52px; }
-    .header-center .wordmark { font-size: 21px; letter-spacing: 0.22em; }
-    .header-center .tagline { font-size: 9px; margin-top: 3px; }
+    .header { padding: 6px 30px; }
+    .header-left img { height: 44px; }
+    .header-center .wordmark { font-size: 19px; letter-spacing: 0.22em; }
+    .header-center .tagline { font-size: 8px; margin-top: 2px; }
+    .header-right { font-size: 10px; }
     .coming-soon-label { margin-bottom: 8px; font-size: 9px; }
     .hero-headline { font-size: 3.2vw; }
-    .hero-sub { font-size: 15px; margin-bottom: 10px; }
-    .hero-body { font-size: 11.5px; line-height: 1.65; margin-bottom: 14px; max-width: 420px; }
+    .hero-sub { font-size: 14px; margin-bottom: 10px; }
+    .hero-body { font-size: 11px; line-height: 1.6; margin-bottom: 12px; max-width: 400px; }
     .hero-stat { padding-top: 10px; }
-    .hero-stat .number { font-size: 38px; }
-    .hero-stat .label, .hero-stat .dates { font-size: 9px; margin-top: 2px; }
-    .category-image { height: 70px; }
-    .category:hover .category-image { height: 140px; }
-    .category-body { padding: 8px 14px 12px; }
-    .cat-number { margin-bottom: 4px; font-size: 8px; }
-    .cat-title { font-size: 15px; margin-bottom: 4px; }
-    .cat-desc { font-size: 10px; line-height: 1.5; margin-bottom: 8px; }
-    .cat-link { font-size: 8px; }
-    .footer { padding: 8px 30px; }
+    .hero-stat .number { font-size: 36px; }
+    .hero-stat .label, .hero-stat .dates { font-size: 8.5px; margin-top: 2px; }
+    .category-image { height: 60px; }
+    .category:hover .category-image { height: 130px; }
+    .category-body { padding: 8px 14px 10px; }
+    .cat-number { margin-bottom: 3px; font-size: 8px; }
+    .cat-title { font-size: 14px; margin-bottom: 0; }
+    .cat-desc {
+      font-size: 10px;
+      line-height: 1.5;
+      margin-bottom: 0;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.4s ease, opacity 0.4s ease, margin-bottom 0.4s ease;
+    }
+    .category:hover .cat-desc {
+      max-height: 80px;
+      opacity: 1;
+      margin-bottom: 8px;
+    }
+    .cat-link {
+      font-size: 8px;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.4s ease, opacity 0.4s ease;
+    }
+    .category:hover .cat-link {
+      max-height: 30px;
+      opacity: 1;
+    }
+    .footer { padding: 6px 30px; }
+    .footer-left, .footer-center, .footer-right { font-size: 9px; }
   }
 
   /* Tablet landscape 901-1200px */
