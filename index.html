@@ -357,8 +357,8 @@
     line-height: 1.2;
   }
   .cat-title em {
-    font-style: italic;
-    font-weight: 300;
+    font-style: normal;
+    font-weight: 400;
   }
 
   .cat-desc {
@@ -433,6 +433,14 @@
     justify-content: space-between;
     padding: 14px 40px;
   }
+  .footer-left,
+  .footer-right {
+    flex: 1;
+  }
+  .footer-center {
+    flex: 1;
+    text-align: center;
+  }
   .footer-left {
     font-size: 11px;
     color: var(--text-muted);
@@ -452,7 +460,9 @@
     font-family: 'Libre Baskerville', serif;
   }
   .footer-right {
+    flex: 1;
     display: flex;
+    justify-content: flex-end;
     gap: 24px;
     font-size: 10px;
     letter-spacing: 0.12em;
@@ -558,12 +568,12 @@
       <img class="category-image"
         src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/23abc.jpg"
         alt="Stamps">
-      <span class="cat-tag">STAMPS</span>
+      <span class="cat-tag">RETAIL</span>
     </div>
     <div class="category-body">
       <span class="cat-number">02 / Stamps</span>
-      <h2 class="cat-title">Stanley <em>Gibbons</em></h2>
-      <p class="cat-desc">Browse current stock from our specialists — every item certified, every standard upheld.</p>
+      <h2 class="cat-title">Online <em>Shop</em></h2>
+      <p class="cat-desc">Choice quality GB and Commonwealth material for immediate purchase. Stamps, Covers, Proofs and more.</p>
       <a class="cat-link" href="#">Browse Stamps</a>
     </div>
   </div>
@@ -607,7 +617,7 @@
   <div class="footer-left">
     Stanleygibbons.com &nbsp;|&nbsp; incorporating <a href="#">Baldwin's</a>
   </div>
-  <div class="footer-center">Est. MDCCCLVI — 170 Years</div>
+  <div class="footer-center">Since 1856 — 170 Years</div>
   <div class="footer-right">
     <a href="#">Contact</a>
     <a href="#">Privacy</a>
