@@ -71,22 +71,8 @@
     position: relative;
   }
   .header-left {
-    font-size: 10px;
-    letter-spacing: 0.18em;
-    color: var(--text-muted);
-    font-weight: 400;
     display: flex;
     align-items: center;
-    gap: 8px;
-  }
-  .header-left::before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    background: var(--gold);
-    border-radius: 50%;
-    display: inline-block;
-    flex-shrink: 0;
   }
   .header-center {
     text-align: center;
@@ -513,7 +499,9 @@
 
 <!-- HEADER -->
 <header class="header">
-  <div class="header-left">EST. 1856 · LONDON</div>
+  <div class="header-left">
+    <img src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/RW.png" alt="Royal Warrant" style="height: 48px; width: auto; opacity: 0.9;">
+  </div>
   <div class="header-center">
     <span class="wordmark">Stanley Gibbons</span>
     <span class="tagline">The Home of Collectables</span>
