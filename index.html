@@ -91,8 +91,8 @@
     text-align: center;
   }
   .header-center .wordmark {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 28px;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 26px;
     font-weight: 400;
     letter-spacing: 0.28em;
     color: var(--white);
@@ -102,10 +102,11 @@
   .header-center .tagline {
     font-size: 9px;
     letter-spacing: 0.35em;
-    color: var(--text-muted);
+    color: var(--gold);
     margin-top: 5px;
     display: block;
     font-weight: 400;
+    font-family: 'Montserrat', sans-serif;
   }
   .header-right {
     text-align: right;
@@ -144,16 +145,17 @@
   .hero-content {
     position: relative;
     z-index: 2;
-    text-align: center;
-    max-width: 680px;
-    padding: 30px 30px 20px;
+    text-align: left;
+    max-width: 780px;
+    width: 100%;
+    padding: 30px 60px 20px;
     animation: fadeUp 1.1s ease both;
   }
 
   .coming-soon-label {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 14px;
     font-size: 10px;
     letter-spacing: 0.35em;
@@ -161,12 +163,17 @@
     margin-bottom: 16px;
     font-weight: 500;
   }
-  .coming-soon-label::before,
+  .coming-soon-label::before {
+    content: '';
+    height: 1px;
+    width: 50px;
+    background: var(--gold);
+  }
   .coming-soon-label::after {
     content: '';
     height: 1px;
     width: 50px;
-    background: var(--gold-dim);
+    background: var(--gold);
   }
 
   .hero-headline {
@@ -199,7 +206,7 @@
     line-height: 1.8;
     color: var(--text-muted);
     max-width: 480px;
-    margin: 0 auto 24px;
+    margin: 0 0 24px;
     font-weight: 300;
   }
 
@@ -207,13 +214,17 @@
     border-top: 1px solid var(--border);
     padding-top: 18px;
     display: inline-block;
+    text-align: center;
   }
   .hero-stat .number {
     font-family: 'Libre Baskerville', serif;
     font-style: italic;
     font-size: 52px;
-    font-weight: 300;
-    color: var(--gold-light);
+    font-weight: 400;
+    background: linear-gradient(160deg, #e8d48a 0%, #c9a84c 45%, #a07828 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     line-height: 1;
     display: block;
   }
