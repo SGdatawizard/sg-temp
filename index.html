@@ -265,6 +265,7 @@
   .categories {
     display: flex;
     border-top: 1px solid var(--border);
+    align-items: flex-end;
   }
 
   .category {
@@ -272,6 +273,8 @@
     overflow: hidden;
     border-right: 1px solid rgba(255,255,255,0.08);
     flex: 1;
+    display: flex;
+    flex-direction: column-reverse;
     transition: flex 0.45s cubic-bezier(0.4,0,0.2,1), background 0.3s ease;
     cursor: pointer;
   }
@@ -301,7 +304,7 @@
 
   .cat-tag {
     position: absolute;
-    top: 12px;
+    bottom: 12px;
     left: 14px;
     font-size: 9px;
     letter-spacing: 0.2em;
@@ -682,7 +685,7 @@
       <span class="cat-number">01 / Auctions</span>
       <h2 class="cat-title">The <em>Auction House</em></h2>
       <p class="cat-desc">Specialist live and timed auctions across stamps, coins, banknotes and ephemera.</p>
-      <a class="cat-link" href="#">View All Auctions</a>
+      <a class="cat-link" href="https://sgbaldwins.com/auctions/upcoming-auctions" target="_blank" rel="noopener">View All Auctions</a>
     </div>
   </div>
 
@@ -698,7 +701,7 @@
       <span class="cat-number">02 / Stamps</span>
       <h2 class="cat-title">Online <em>Shop</em></h2>
       <p class="cat-desc">Choice quality GB and Commonwealth material for immediate purchase. Stamps, Covers, Proofs and more.</p>
-      <a class="cat-link" href="#">Browse Stamps</a>
+      <a class="cat-link" href="https://shop.stanleygibbons.com/" target="_blank" rel="noopener">Browse Stamps</a>
     </div>
   </div>
 
@@ -714,23 +717,7 @@
       <span class="cat-number">03 / Publications</span>
       <h2 class="cat-title">Physical & <em>Digital Catalogues</em></h2>
       <p class="cat-desc">The Stanley Gibbons catalogues — the world's standard reference for stamp collectors.</p>
-      <a class="cat-link" href="#">View Publications</a>
-    </div>
-  </div>
-
-  <!-- 04 GSM -->
-  <div class="category magazine">
-    <div class="category-img-wrap">
-      <img class="category-image"
-        src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/Screenshot%202026-05-06%20101351.png"
-        alt="GSM">
-      <span class="cat-tag">GSM</span>
-    </div>
-    <div class="category-body">
-      <span class="cat-number">04 / GSM</span>
-      <h2 class="cat-title">Gibbons <em>Stamp Monthly</em></h2>
-      <p class="cat-desc">The world's leading philatelic magazine since 1890. Subscribe or browse the archive.</p>
-      <a class="cat-link" href="#">Subscribe & Read</a>
+      <a class="cat-link" href="https://shop.stanleygibbons.com/collections/publications-print" target="_blank" rel="noopener">View Publications</a>
     </div>
   </div>
 
