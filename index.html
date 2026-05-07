@@ -274,7 +274,10 @@
     border-right: 1px solid rgba(255,255,255,0.08);
     flex: 1;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-decoration: none;
+    color: inherit;
     transition: flex 0.45s cubic-bezier(0.4,0,0.2,1), background 0.3s ease;
     cursor: pointer;
   }
@@ -289,6 +292,7 @@
     display: block;
     filter: saturate(0.5) brightness(0.85);
     transition: filter 0.45s ease, transform 0.45s ease, height 0.45s cubic-bezier(0.4,0,0.2,1);
+    order: -1;
   }
   .category:hover .category-image {
     filter: saturate(0.8) brightness(1);
@@ -304,7 +308,7 @@
 
   .cat-tag {
     position: absolute;
-    bottom: 12px;
+    top: 12px;
     left: 14px;
     font-size: 9px;
     letter-spacing: 0.2em;
@@ -674,7 +678,7 @@
 <section class="categories">
 
   <!-- 01 Auctions -->
-  <div class="category">
+  <a class="category" href="https://sgbaldwins.com/auctions/upcoming-auctions" target="_blank" rel="noopener">
     <div class="category-img-wrap">
       <img class="category-image"
         src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/5.webp"
@@ -685,12 +689,12 @@
       <span class="cat-number">01 / Auctions</span>
       <h2 class="cat-title">The <em>Auction House</em></h2>
       <p class="cat-desc">Specialist live and timed auctions across stamps, coins, banknotes and ephemera.</p>
-      <a class="cat-link" href="https://sgbaldwins.com/auctions/upcoming-auctions" target="_blank" rel="noopener">View All Auctions</a>
+      <span class="cat-link">View All Auctions</span>
     </div>
-  </div>
+  </a>
 
   <!-- 02 Stamps -->
-  <div class="category">
+  <a class="category" href="https://shop.stanleygibbons.com/" target="_blank" rel="noopener">
     <div class="category-img-wrap">
       <img class="category-image"
         src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/23abc.jpg"
@@ -701,12 +705,12 @@
       <span class="cat-number">02 / Stamps</span>
       <h2 class="cat-title">Online <em>Shop</em></h2>
       <p class="cat-desc">Choice quality GB and Commonwealth material for immediate purchase. Stamps, Covers, Proofs and more.</p>
-      <a class="cat-link" href="https://shop.stanleygibbons.com/" target="_blank" rel="noopener">Browse Stamps</a>
+      <span class="cat-link">Browse Stamps</span>
     </div>
-  </div>
+  </a>
 
   <!-- 03 Publications -->
-  <div class="category">
+  <a class="category" href="https://shop.stanleygibbons.com/collections/publications-print" target="_blank" rel="noopener">
     <div class="category-img-wrap">
       <img class="category-image"
         src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/large_Mockup_Part_1_2cbdec22d8.webp"
@@ -717,9 +721,9 @@
       <span class="cat-number">03 / Publications</span>
       <h2 class="cat-title">Physical & <em>Digital Catalogues</em></h2>
       <p class="cat-desc">The Stanley Gibbons catalogues — the world's standard reference for stamp collectors.</p>
-      <a class="cat-link" href="https://shop.stanleygibbons.com/collections/publications-print" target="_blank" rel="noopener">View Publications</a>
+      <span class="cat-link">View Publications</span>
     </div>
-  </div>
+  </a>
 
 </section>
 
