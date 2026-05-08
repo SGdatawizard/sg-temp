@@ -362,6 +362,15 @@
     color: var(--text-muted);
     font-weight: 300;
     margin-bottom: 14px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: -webkit-line-clamp 0.3s ease;
+  }
+  .category:hover .cat-desc {
+    -webkit-line-clamp: unset;
+    overflow: visible;
   }
 
   .cat-link {
