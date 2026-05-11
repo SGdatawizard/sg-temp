@@ -512,40 +512,30 @@
     .coming-soon-label { margin-bottom: 8px; font-size: 9px; }
     .hero-headline { font-size: 3.2vw; }
     .hero-sub { font-size: 14px; margin-bottom: 10px; }
-    .hero-body { font-size: 11px; line-height: 1.6; margin-bottom: 12px; max-width: 400px; }
+    .hero-body { font-size: 12px; line-height: 1.6; margin-bottom: 12px; max-width: 400px; }
     .hero-stat { padding-top: 10px; }
     .hero-stat .number { font-size: 36px; }
     .hero-stat .label, .hero-stat .dates { font-size: 8.5px; margin-top: 2px; }
-    .category-image { height: 60px; }
-    .category:hover .category-image { height: 130px; }
-    .category-body { padding: 8px 14px 10px; }
+    .category-image { height: 55px; }
+    .category:hover .category-image { height: 110px; }
+    .category-body { padding: 8px 14px 10px; height: 110px; }
+    .category:hover .category-body { height: auto; }
     .cat-number { margin-bottom: 3px; font-size: 8px; }
-    .cat-title { font-size: 14px; margin-bottom: 0; }
+    .cat-title { font-size: 14px; margin-bottom: 4px; }
     .cat-desc {
       font-size: 10px;
       line-height: 1.5;
-      margin-bottom: 0;
-      max-height: 0;
+      white-space: nowrap;
       overflow: hidden;
-      opacity: 0;
-      transition: max-height 0.4s ease, opacity 0.4s ease, margin-bottom 0.4s ease;
+      text-overflow: ellipsis;
+      margin-bottom: 6px;
     }
     .category:hover .cat-desc {
-      max-height: 80px;
-      opacity: 1;
-      margin-bottom: 8px;
+      white-space: normal;
+      overflow: visible;
     }
-    .cat-link {
-      font-size: 8px;
-      max-height: 0;
-      overflow: hidden;
-      opacity: 0;
-      transition: max-height 0.4s ease, opacity 0.4s ease;
-    }
-    .category:hover .cat-link {
-      max-height: 30px;
-      opacity: 1;
-    }
+    .cat-link { font-size: 8px; max-height: 0; overflow: hidden; opacity: 0; transition: max-height 0.4s ease, opacity 0.4s ease; }
+    .category:hover .cat-link { max-height: 30px; opacity: 1; }
     .footer { padding: 6px 30px; }
     .footer-left, .footer-center, .footer-right { font-size: 9px; }
   }
