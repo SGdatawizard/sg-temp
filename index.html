@@ -148,39 +148,65 @@
     position: relative;
     z-index: 2;
     display: flex;
+    align-items: stretch;
+    width: 100%;
+    min-height: 520px;
+  }
+
+  /* Left — stamp photo */
+  .hero-stamp {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+  }
+  .hero-stamp img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    filter: grayscale(0.2);
+  }
+
+  /* Centre — two characters back to back */
+  .hero-characters {
+    flex-shrink: 0;
+    display: flex;
     align-items: flex-end;
     justify-content: center;
-    width: 100%;
-    max-width: 1200px;
-    padding: 0 20px;
+    background: var(--white);
+    border-left: 1px solid var(--border-dark);
+    border-right: 1px solid var(--border-dark);
+    padding: 0 10px;
+    gap: 0;
   }
-
-  /* Characters */
-  .hero-character {
-    flex-shrink: 0;
-    position: relative;
-    bottom: 0;
-  }
-  .hero-character img {
+  .hero-characters img {
     display: block;
     width: auto;
-    height: 420px;
+    height: 460px;
     object-fit: contain;
     object-position: bottom;
+    flex-shrink: 0;
   }
-  .hero-character.victoria img { transform: scaleX(-1); }
+  /* Victoria faces right (toward postman) — no flip needed */
+  /* Postman faces left (toward victoria) — flip him */
+  .hero-characters .postman {
+    transform: scaleX(-1);
+  }
 
-  /* Centre text block */
+  /* Right — text block */
   .hero-text {
     flex: 1;
-    text-align: center;
-    padding: 60px 40px 50px;
-    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 50px;
+    background: var(--white);
+    text-align: left;
   }
   .hero-text .coming-soon-label {
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 12px;
     font-size: 9px;
     letter-spacing: 0.4em;
@@ -189,53 +215,45 @@
     font-weight: 600;
     text-transform: uppercase;
   }
-  .hero-text .coming-soon-label::before,
   .hero-text .coming-soon-label::after {
     content: '';
     height: 1px;
-    width: 36px;
+    flex: 1;
     background: var(--gold);
-    opacity: 0.6;
+    opacity: 0.4;
   }
   .hero-text h1 {
     font-family: 'Libre Baskerville', serif;
-    font-size: clamp(22px, 2.8vw, 42px);
+    font-size: clamp(20px, 2.4vw, 36px);
     font-weight: 400;
     color: var(--navy);
-    line-height: 1.15;
-    margin-bottom: 18px;
-    white-space: nowrap;
+    line-height: 1.2;
+    margin-bottom: 16px;
   }
   .hero-text h1 em {
     color: var(--gold);
     font-style: italic;
     font-weight: 300;
+    display: block;
   }
   .hero-text .hero-sub {
     font-family: 'Libre Baskerville', serif;
     font-style: italic;
-    font-size: 15px;
-    color: rgba(26,26,46,0.6);
-    margin-bottom: 20px;
+    font-size: 14px;
+    color: rgba(26,26,46,0.55);
+    margin-bottom: 18px;
   }
   .hero-text .hero-body {
     font-family: 'Open Sans', sans-serif;
     font-size: 13px;
-    line-height: 1.8;
-    color: rgba(26,26,46,0.55);
+    line-height: 1.85;
+    color: rgba(26,26,46,0.5);
     font-weight: 300;
-    margin-bottom: 28px;
+    margin-bottom: 0;
   }
   .hero-text .hero-body strong {
     color: var(--navy);
     font-weight: 500;
-  }
-  .hero-divider {
-    width: 1px;
-    background: var(--border-dark);
-    align-self: stretch;
-    flex-shrink: 0;
-    opacity: 0.5;
   }
 
   /* ── PANELS ── */
@@ -438,15 +456,22 @@
   <div class="hero-bg-img"></div>
   <div class="hero-inner">
 
-    <!-- Victoria (left) -->
-    <div class="hero-character victoria">
-      <img src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/victoria-2x.png"
-           alt="Queen Victoria illustration">
+    <!-- Left: stamp photo -->
+    <div class="hero-stamp">
+      <img src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/how_to_penny_black.png"
+           alt="Penny Black stamp">
     </div>
 
-    <div class="hero-divider"></div>
+    <!-- Centre: Victoria and Postman back to back -->
+    <div class="hero-characters">
+      <img src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/victoria-2x.png"
+           alt="Queen Victoria illustration">
+      <img class="postman"
+           src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/postman-2x.png"
+           alt="Victorian postman illustration">
+    </div>
 
-    <!-- Centre text -->
+    <!-- Right: text -->
     <div class="hero-text">
       <div class="coming-soon-label">Coming Soon</div>
       <h1>We're building <em>something new.</em></h1>
@@ -457,14 +482,6 @@
         — same standard, same leading specialists, more to discover.
         <strong> For more, follow the links below.</strong>
       </p>
-    </div>
-
-    <div class="hero-divider"></div>
-
-    <!-- Postman (right) -->
-    <div class="hero-character postman">
-      <img src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/postman-2x.png"
-           alt="Victorian postman illustration">
     </div>
 
   </div>
