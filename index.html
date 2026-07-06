@@ -29,12 +29,12 @@
 
   /* ── HEADER ── */
   .header {
-    background: var(--white);
+    background: var(--navy-mid);
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 16px 40px;
-    border-bottom: 1px solid var(--border-dark);
+    border-bottom: 1px solid var(--border-gold);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -49,12 +49,13 @@
   .header-left .warrant {
     height: 56px;
     width: auto;
-    filter: brightness(0) saturate(100%) invert(13%) sepia(37%) saturate(800%) hue-rotate(185deg) brightness(85%);
+    opacity: 0.9;
+    filter: none;
   }
   .header-left .sg-logo {
     height: 48px;
     width: auto;
-    border-left: 1px solid var(--border-dark);
+    border-left: 1px solid rgba(255,255,255,0.15);
     padding-left: 16px;
   }
   .header-center {
@@ -70,30 +71,30 @@
     font-style: italic;
     font-family: 'Libre Baskerville', serif;
     font-size: 13px;
-    color: var(--navy);
+    color: var(--white);
   }
-  .header-center .dot { margin: 0 10px; opacity: 0.35; color: var(--navy); }
+  .header-center .dot { margin: 0 10px; opacity: 0.35; color: var(--white); }
   .header-right {
     font-size: 10px;
     letter-spacing: 0.1em;
-    color: var(--navy-mid);
+    color: var(--gold);
     font-weight: 500;
     flex-shrink: 0;
   }
 
   /* ── BANNER ── */
   .banner {
-    background: var(--navy-mid);
+    background: var(--white);
     text-align: center;
-    padding: 70px 40px;
-    border-bottom: 1px solid var(--border-gold);
+    padding: 35px 40px;
+    border-bottom: 1px solid var(--border-dark);
   }
   .banner-headline {
     font-family: 'Libre Baskerville', serif;
-    font-size: clamp(28px, 3.6vw, 54px);
+    font-size: clamp(22px, 2.8vw, 40px);
     font-weight: 400;
-    color: var(--white);
-    margin-bottom: 28px;
+    color: var(--navy);
+    margin-bottom: 14px;
     white-space: nowrap;
   }
   .banner-headline em {
@@ -103,16 +104,16 @@
   }
   .banner-body {
     font-family: 'Open Sans', sans-serif;
-    font-size: 15px;
-    line-height: 1.9;
-    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.85;
+    color: rgba(26,26,46,0.6);
     max-width: 660px;
     margin: 0 auto;
     font-weight: 300;
   }
   .banner-body strong {
-    color: rgba(255,255,255,0.85);
-    font-weight: 400;
+    color: var(--navy);
+    font-weight: 500;
   }
 
   /* ── CAROUSEL ── */
