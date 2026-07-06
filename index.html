@@ -57,6 +57,7 @@
     width: auto;
     border-left: 1px solid rgba(255,255,255,0.15);
     padding-left: 16px;
+    filter: brightness(0) invert(1);
   }
   .header-center {
     flex: 1;
@@ -86,15 +87,15 @@
   .banner {
     background: var(--white);
     text-align: center;
-    padding: 35px 40px;
+    padding: 28px 40px;
     border-bottom: 1px solid var(--border-dark);
   }
   .banner-headline {
     font-family: 'Libre Baskerville', serif;
-    font-size: clamp(22px, 2.8vw, 40px);
+    font-size: clamp(18px, 2vw, 28px);
     font-weight: 400;
     color: var(--navy);
-    margin-bottom: 14px;
+    margin-bottom: 10px;
     white-space: nowrap;
   }
   .banner-headline em {
@@ -119,7 +120,8 @@
   /* ── CAROUSEL ── */
   .carousel {
     position: relative;
-    height: 420px;
+    height: 75vh;
+    min-height: 480px;
     overflow: hidden;
   }
   .carousel-slide {
@@ -161,7 +163,7 @@
     display: flex;
     height: 540px;
     gap: 4px;
-    background: #000;
+    background: var(--white);
     padding: 4px;
   }
   .panel {
