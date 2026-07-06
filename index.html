@@ -121,114 +121,46 @@
   }
   .header-bottom .ann .dot { margin: 0 10px; opacity: 0.35; color: var(--white); }
 
-  /* ── SPLIT HERO ── */
-  .hero {
+  /* ── CAROUSEL HERO ── */
+  .carousel {
     position: relative;
-    display: flex;
-    align-items: stretch;
-    min-height: 540px;
-    overflow: hidden;
-    border-bottom: 1px solid var(--border-dark);
-  }
-
-  /* Left column — stamp image */
-  .hero-left {
-    flex: 1;
-    position: relative;
+    height: 65vh;
+    min-height: 420px;
     overflow: hidden;
   }
-  .hero-left img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-  }
-
-  /* Right column — text */
-  .hero-right {
-    flex: 1;
-    background: var(--white);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 60px 60px 60px 100px;
-  }
-  .hero-text .coming-soon-label {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 9px;
-    letter-spacing: 0.4em;
-    color: var(--gold);
-    margin-bottom: 18px;
-    font-weight: 600;
-    text-transform: uppercase;
-  }
-  .hero-text .coming-soon-label::after {
-    content: '';
-    height: 1px;
-    flex: 1;
-    background: var(--gold);
-    opacity: 0.4;
-  }
-  .hero-text h1 {
-    font-family: 'Libre Baskerville', serif;
-    font-size: clamp(20px, 2.4vw, 36px);
-    font-weight: 400;
-    color: var(--navy);
-    line-height: 1.2;
-    margin-bottom: 16px;
-  }
-  .hero-text h1 em {
-    color: var(--gold);
-    font-style: italic;
-    font-weight: 300;
-    display: block;
-  }
-  .hero-text .hero-sub {
-    font-family: 'Libre Baskerville', serif;
-    font-style: italic;
-    font-size: 14px;
-    color: rgba(26,26,46,0.55);
-    margin-bottom: 18px;
-  }
-  .hero-text .hero-body {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 13px;
-    line-height: 1.85;
-    color: rgba(26,26,46,0.5);
-    font-weight: 300;
-  }
-  .hero-text .hero-body strong {
-    color: var(--navy);
-    font-weight: 500;
-  }
-
-  /* Characters — absolutely centred on the dividing line */
-  .hero-characters {
+  .carousel-slide {
     position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+  }
+  .carousel-slide::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(14,26,46,0.1), rgba(14,26,46,0.5));
+  }
+  .carousel-slide.active { opacity: 1; }
+  .carousel-dots {
+    position: absolute;
+    bottom: 20px;
     left: 50%;
-    bottom: 0;
     transform: translateX(-50%);
     display: flex;
-    align-items: flex-end;
-    z-index: 10;
-    pointer-events: none;
+    gap: 8px;
+    z-index: 3;
   }
-  .hero-characters .victoria {
-    height: 480px;
-    width: auto;
-    display: block;
-    margin-right: -30px;
+  .carousel-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.35);
+    cursor: pointer;
+    transition: background 0.3s ease;
+    border: none; padding: 0;
   }
-  .hero-characters .postman {
-    height: 420px;
-    width: auto;
-    display: block;
-    transform: scaleX(-1);
-    margin-left: -30px;
-  }
+  .carousel-dot.active { background: var(--gold); }
 
   /* ── PANELS ── */
   .panels {
@@ -362,14 +294,7 @@
   @media (max-width: 900px) {
     .header-top { padding: 12px 20px; flex-wrap: wrap; }
     .header-top-center { order: 3; flex-basis: 100%; padding-top: 8px; }
-    .hero { min-height: auto; }
-    .hero-inner { flex-direction: column; align-items: center; padding: 0; }
-    .hero-character img { height: 220px; }
-    .hero-character.victoria { order: 1; }
-    .hero-text { order: 2; padding: 40px 24px; }
-    .hero-text h1 { white-space: normal; }
-    .hero-character.postman { order: 3; }
-    .hero-divider { display: none; }
+    .carousel { height: 40vh; min-height: 280px; }
     .panels { flex-direction: column; height: auto; }
     .panel { height: 280px; flex: none; }
     .locations { flex-direction: column; }
@@ -380,13 +305,9 @@
   }
   @media (max-width: 540px) {
     .header-top { padding: 10px 14px; }
-    .header-top-left .warrant { height: 38px; }
-    .header-top-left .sg-logo { height: 32px; padding-left: 10px; }
     .header-top-right { display: none; }
     .header-top-center .banner-headline { white-space: normal; font-size: 16px; }
-    .hero-character img { height: 160px; }
-    .hero-text { padding: 28px 18px; }
-    .hero-text h1 { font-size: 20px; white-space: normal; }
+    .carousel { height: 35vh; min-height: 220px; }
     .panel { height: 240px; }
     .footer { padding: 14px; }
   }
@@ -400,10 +321,12 @@
   <div class="header-top-left">
     <img class="warrant"
       src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/KCWarrant%20WHite.png"
-      alt="Royal Warrant">
+      alt="Royal Warrant"
+      style="height: 80px; width: auto; filter: brightness(0) saturate(100%) invert(13%) sepia(37%) saturate(800%) hue-rotate(185deg) brightness(85%);">
     <img class="sg-logo"
       src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/SG%20Logo%20Navy.png"
       alt="Stanley Gibbons"
+      style="height: 68px; width: auto; border-left: 1px solid var(--border-dark); padding-left: 20px;"
       onerror="this.style.display='none'">
   </div>
   <div class="header-top-center">
@@ -425,41 +348,17 @@
   </div>
 </div>
 
-<!-- SPLIT HERO -->
-<section class="hero">
-
-  <!-- Left column: stamp image -->
-  <div class="hero-left">
-    <img src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/how_to_penny_black.png"
-         alt="Penny Black stamp">
+<!-- CAROUSEL -->
+<div class="carousel">
+  <div class="carousel-slide active" style="background-image: url('https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/21.jpg')"></div>
+  <div class="carousel-slide" style="background-image: url('https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/17.jpg')"></div>
+  <div class="carousel-slide" style="background-image: url('https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/16.webp')"></div>
+  <div class="carousel-dots">
+    <button class="carousel-dot active" onclick="goToSlide(0)"></button>
+    <button class="carousel-dot" onclick="goToSlide(1)"></button>
+    <button class="carousel-dot" onclick="goToSlide(2)"></button>
   </div>
-
-  <!-- Right column: text -->
-  <div class="hero-right">
-    <div class="hero-text">
-      <div class="coming-soon-label">Coming Soon</div>
-      <h1>We're building <em>something new.</em></h1>
-      <p class="hero-sub">A new home for collectables.</p>
-      <p class="hero-body">
-        For 170 years, Stanley Gibbons has set the standard for stamp collecting. With Baldwin's
-        now part of the family, we're shaping a new destination for a broader world of collecting
-        — same standard, same leading specialists, more to discover.
-        <strong> For more, follow the links below.</strong>
-      </p>
-    </div>
-  </div>
-
-  <!-- Characters overlaid on the dividing line -->
-  <div class="hero-characters">
-    <img class="victoria"
-         src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/victoria-2x.png"
-         alt="Queen Victoria">
-    <img class="postman"
-         src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/postman-2x.png"
-         alt="Victorian postman">
-  </div>
-
-</section>
+</div>
 
 <!-- PANELS -->
 <section class="panels">
@@ -523,5 +422,18 @@
 
 
 
+<script>
+  let current = 0;
+  const slides = document.querySelectorAll('.carousel-slide');
+  const dots = document.querySelectorAll('.carousel-dot');
+  function goToSlide(n) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = n;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+  setInterval(() => goToSlide((current + 1) % slides.length), 4000);
+</script>
 </body>
 </html>
