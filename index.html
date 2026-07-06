@@ -87,35 +87,47 @@
     justify-content: space-between;
     padding: 0 40px;
   }
-  .nav-ann {
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+  }
+  .nav-side {
     font-family: 'Montserrat', sans-serif;
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
     color: var(--gold);
-    padding: 12px 0;
+    padding: 14px 0;
     white-space: nowrap;
+    flex-shrink: 0;
   }
-  .nav-ann em {
-    font-style: italic;
-    font-family: 'Libre Baskerville', serif;
-    font-size: 12px;
-    color: var(--white);
-  }
-  .nav-ann .dot { margin: 0 8px; opacity: 0.35; color: var(--white); }
 
   .nav-menu {
     display: flex;
     align-items: center;
     list-style: none;
     gap: 0;
+    flex: 1;
+    justify-content: center;
   }
   .nav-item {
     position: relative;
+    display: flex;
+    align-items: center;
+  }
+  /* Gold separator between items */
+  .nav-item + .nav-item::before {
+    content: '';
+    width: 1px;
+    height: 16px;
+    background: var(--border-gold);
+    flex-shrink: 0;
   }
   .nav-item > a {
     display: block;
-    padding: 14px 20px;
+    padding: 14px 24px;
     font-size: 10px;
     letter-spacing: 0.18em;
     font-weight: 600;
@@ -124,6 +136,7 @@
     text-transform: uppercase;
     transition: color 0.2s ease;
     white-space: nowrap;
+    text-align: center;
   }
   .nav-item > a:hover,
   .nav-item:hover > a { color: var(--white); }
@@ -140,21 +153,21 @@
   .nav-dropdown {
     position: absolute;
     top: 100%;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(6px);
     background: var(--navy);
     border: 1px solid var(--border-gold);
     border-top: 2px solid var(--gold);
     min-width: 200px;
     opacity: 0;
     pointer-events: none;
-    transform: translateY(6px);
     transition: opacity 0.2s ease, transform 0.2s ease;
     z-index: 300;
   }
   .nav-item:hover .nav-dropdown {
     opacity: 1;
     pointer-events: all;
-    transform: translateY(0);
+    transform: translateX(-50%) translateY(0);
   }
   .nav-dropdown a {
     display: block;
@@ -165,8 +178,9 @@
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 500;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(201,168,76,0.12);
     transition: color 0.2s, background 0.2s;
+    text-align: left;
   }
   .nav-dropdown a:last-child { border-bottom: none; }
   .nav-dropdown a:hover { color: var(--gold); background: rgba(255,255,255,0.03); }
@@ -290,7 +304,7 @@
   .panel-link::after { content: '→'; font-size: 14px; }
 
   /* ── EDITORIAL ── */
-  .editorial { display: flex; min-height: 380px; }
+  .editorial { display: flex; min-height: 304px; }
   .editorial.reverse { flex-direction: row-reverse; }
   .editorial-img { flex: 1; overflow: hidden; position: relative; }
   .editorial-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
@@ -302,12 +316,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 50px 70px;
+    padding: 40px 56px;
     text-align: center;
   }
-  .editorial-label { font-size: 9px; letter-spacing: 0.3em; font-weight: 600; color: var(--gold); text-transform: uppercase; margin-bottom: 16px; }
-  .editorial-title { font-family: 'Libre Baskerville', serif; font-size: clamp(24px, 2.4vw, 36px); font-weight: 400; color: var(--navy); margin-bottom: 20px; line-height: 1.2; }
-  .editorial-body { font-family: 'Open Sans', sans-serif; font-size: 13px; line-height: 1.9; color: rgba(26,26,46,0.65); font-weight: 300; max-width: 380px; margin-bottom: 28px; }
+  .editorial-label { font-size: 9px; letter-spacing: 0.3em; font-weight: 600; color: var(--gold); text-transform: uppercase; margin-bottom: 12px; }
+  .editorial-title { font-family: 'Libre Baskerville', serif; font-size: clamp(20px, 2vw, 30px); font-weight: 400; color: var(--navy); margin-bottom: 16px; line-height: 1.2; }
+  .editorial-body { font-family: 'Open Sans', sans-serif; font-size: 12px; line-height: 1.85; color: rgba(26,26,46,0.65); font-weight: 300; max-width: 360px; margin-bottom: 22px; }
   .editorial-link { font-size: 10px; letter-spacing: 0.25em; font-weight: 600; color: var(--gold); text-decoration: none; text-transform: uppercase; display: inline-flex; align-items: center; gap: 12px; transition: gap 0.2s ease; }
   .editorial-link::after { content: '→'; font-size: 14px; }
   .editorial-link:hover { gap: 18px; }
@@ -328,15 +342,15 @@
     flex-wrap: wrap;
   }
   .footer-nav a {
-    font-size: 10px;
+    font-size: 11px;
     letter-spacing: 0.2em;
-    font-weight: 600;
-    color: rgba(255,255,255,0.55);
+    font-weight: 700;
+    color: var(--white);
     text-decoration: none;
     text-transform: uppercase;
     transition: color 0.2s;
   }
-  .footer-nav a:hover { color: var(--white); }
+  .footer-nav a:hover { color: var(--gold); }
 
   .footer-cols {
     display: grid;
@@ -357,7 +371,7 @@
     font-family: 'Open Sans', sans-serif;
     font-size: 12px;
     line-height: 1.8;
-    color: rgba(255,255,255,0.5);
+    color: rgba(255,255,255,0.72);
     font-weight: 300;
     margin-bottom: 20px;
   }
@@ -465,7 +479,7 @@
       alt="Royal Warrant"
       style="height:80px;width:auto;filter:brightness(0) saturate(100%) invert(13%) sepia(37%) saturate(800%) hue-rotate(185deg) brightness(85%);">
     <img class="sg-logo"
-      src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/SG%20Logo%20Navy.png"
+      src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/SG%20Logo%20Dark.png"
       alt="Stanley Gibbons"
       style="height:68px;width:auto;border-left:1px solid var(--border-dark);padding-left:20px;"
       onerror="this.style.display='none'">
@@ -485,9 +499,7 @@
 <!-- NAV STRIP -->
 <nav class="nav-strip">
   <div class="nav-inner">
-    <div class="nav-ann">
-      1856 <span class="dot">·</span> <em>Celebrating 170 Years</em> <span class="dot">·</span> 2026
-    </div>
+    <div class="nav-side">1856</div>
     <ul class="nav-menu">
       <li class="nav-item">
         <a href="https://sgbaldwins.com/stamps-buy-now" target="_blank" rel="noopener">Online Store <span class="nav-arrow">▾</span></a>
@@ -521,6 +533,7 @@
         </div>
       </li>
     </ul>
+    <div class="nav-side">2026</div>
   </div>
 </nav>
 
@@ -638,9 +651,13 @@
       </div>
     </div>
     <div class="footer-social">
-      <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">&#x66;</a>
-      <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter">&#x74;</a>
-      <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">&#x69;</a>
+      <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
     </div>
   </div>
   <div class="footer-bottom">
