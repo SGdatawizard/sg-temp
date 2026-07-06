@@ -200,8 +200,8 @@
   /* ── CAROUSEL ── */
   .carousel {
     position: relative;
-    height: 65vh;
-    min-height: 420px;
+    height: 50vh;
+    min-height: 360px;
     overflow: hidden;
   }
   .carousel-slide {
@@ -209,8 +209,13 @@
     inset: 0;
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     opacity: 0;
     transition: opacity 1.2s ease;
+  }
+  .carousel-slide.catalogue {
+    background-size: contain;
+    background-color: #0e1525;
   }
   .carousel-slide::after {
     content: '';
@@ -571,21 +576,21 @@
       <a class="slide-btn" href="https://sgbaldwins.com/about-us/stanley-gibbons" target="_blank" rel="noopener">View Publications</a>
     </div>
   </div>
-  <div class="carousel-slide" style="background-image:url('https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/2026_Part1_Stanley_Gibbons.webp')">
+  <div class="carousel-slide catalogue" style="background-image:url('https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/2026_Part1_Stanley_Gibbons.webp')">
     <div class="slide-content">
       <span class="slide-label">New 2026 Edition</span>
       <span class="slide-title">Commonwealth & British Empire<br>Stamps Catalogue 1840–1970</span>
       <a class="slide-btn" href="https://sgbaldwins.com/about-us/stanley-gibbons" target="_blank" rel="noopener">Order Part 1 Today</a>
     </div>
   </div>
-  <div class="carousel-slide" style="background-image:url('https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/SOTW_2025__1_.webp')">
+  <div class="carousel-slide catalogue" style="background-image:url('https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/SOTW_2025__1_.webp')">
     <div class="slide-content">
       <span class="slide-label">2026 Edition</span>
       <span class="slide-title">Stamps of the World</span>
       <a class="slide-btn" href="https://sgbaldwins.com/about-us/stanley-gibbons" target="_blank" rel="noopener">Order Today</a>
     </div>
   </div>
-  <div class="carousel-slide" style="background-image:url('https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/Concise_web_BANNER_2025.png')">
+  <div class="carousel-slide catalogue" style="background-image:url('https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/Concise_web_BANNER_2025.png')">
     <div class="slide-content">
       <span class="slide-label">2026 Edition</span>
       <span class="slide-title">Great Britain Concise</span>
