@@ -124,85 +124,35 @@
   /* ── SPLIT HERO ── */
   .hero {
     position: relative;
-    background: var(--white);
     display: flex;
-    align-items: flex-end;
-    justify-content: center;
+    align-items: stretch;
+    min-height: 540px;
     overflow: hidden;
-    min-height: 520px;
     border-bottom: 1px solid var(--border-dark);
   }
 
-  /* penny black background, very faint */
-  .hero-bg-img {
-    position: absolute;
-    inset: 0;
-    background-image: url('https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/how_to_penny_black.png');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.06;
-    filter: grayscale(1);
-  }
-
-  .hero-inner {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    align-items: stretch;
-    width: 100%;
-    min-height: 520px;
-  }
-
-  /* Left — stamp photo */
-  .hero-stamp {
+  /* Left column — stamp image */
+  .hero-left {
     flex: 1;
-    overflow: hidden;
     position: relative;
+    overflow: hidden;
   }
-  .hero-stamp img {
+  .hero-left img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
     display: block;
-    filter: grayscale(0.2);
   }
 
-  /* Centre — two characters back to back */
-  .hero-characters {
-    flex-shrink: 0;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    background: var(--white);
-    border-left: 1px solid var(--border-dark);
-    border-right: 1px solid var(--border-dark);
-    padding: 0 10px;
-    gap: 0;
-  }
-  .hero-characters img {
-    display: block;
-    width: auto;
-    height: 460px;
-    object-fit: contain;
-    object-position: bottom;
-    flex-shrink: 0;
-  }
-  /* Victoria faces right (toward postman) — no flip needed */
-  /* Postman faces left (toward victoria) — flip him */
-  .hero-characters .postman {
-    transform: scaleX(-1);
-  }
-
-  /* Right — text block */
-  .hero-text {
+  /* Right column — text */
+  .hero-right {
     flex: 1;
+    background: var(--white);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 60px 50px;
-    background: var(--white);
-    text-align: left;
+    padding: 60px 60px 60px 100px;
   }
   .hero-text .coming-soon-label {
     display: flex;
@@ -249,11 +199,35 @@
     line-height: 1.85;
     color: rgba(26,26,46,0.5);
     font-weight: 300;
-    margin-bottom: 0;
   }
   .hero-text .hero-body strong {
     color: var(--navy);
     font-weight: 500;
+  }
+
+  /* Characters — absolutely centred on the dividing line */
+  .hero-characters {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: flex-end;
+    z-index: 10;
+    pointer-events: none;
+  }
+  .hero-characters .victoria {
+    height: 480px;
+    width: auto;
+    display: block;
+    margin-right: -30px;
+  }
+  .hero-characters .postman {
+    height: 420px;
+    width: auto;
+    display: block;
+    transform: scaleX(-1);
+    margin-left: -30px;
   }
 
   /* ── PANELS ── */
@@ -453,25 +427,15 @@
 
 <!-- SPLIT HERO -->
 <section class="hero">
-  <div class="hero-bg-img"></div>
-  <div class="hero-inner">
 
-    <!-- Left: stamp photo -->
-    <div class="hero-stamp">
-      <img src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/how_to_penny_black.png"
-           alt="Penny Black stamp">
-    </div>
+  <!-- Left column: stamp image -->
+  <div class="hero-left">
+    <img src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/how_to_penny_black.png"
+         alt="Penny Black stamp">
+  </div>
 
-    <!-- Centre: Victoria and Postman back to back -->
-    <div class="hero-characters">
-      <img src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/victoria-2x.png"
-           alt="Queen Victoria illustration">
-      <img class="postman"
-           src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/postman-2x.png"
-           alt="Victorian postman illustration">
-    </div>
-
-    <!-- Right: text -->
+  <!-- Right column: text -->
+  <div class="hero-right">
     <div class="hero-text">
       <div class="coming-soon-label">Coming Soon</div>
       <h1>We're building <em>something new.</em></h1>
@@ -483,8 +447,18 @@
         <strong> For more, follow the links below.</strong>
       </p>
     </div>
-
   </div>
+
+  <!-- Characters overlaid on the dividing line -->
+  <div class="hero-characters">
+    <img class="victoria"
+         src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/victoria-2x.png"
+         alt="Queen Victoria">
+    <img class="postman"
+         src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/postman-2x.png"
+         alt="Victorian postman">
+  </div>
+
 </section>
 
 <!-- PANELS -->
