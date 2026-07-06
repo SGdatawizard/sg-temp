@@ -290,15 +290,92 @@
   .footer-right a { color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
   .footer-right a:hover { color: var(--white); }
 
-  /* ── RESPONSIVE ── */
+  /* ── EDITORIAL SPLITS ── */
+  .editorial {
+    display: flex;
+    min-height: 480px;
+  }
+  .editorial.reverse { flex-direction: row-reverse; }
+
+  .editorial-img {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+  }
+  .editorial-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    filter: grayscale(0.15);
+    transition: transform 0.6s ease;
+  }
+  .editorial:hover .editorial-img img { transform: scale(1.03); }
+
+  .editorial-text {
+    flex: 1;
+    background: var(--off-white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 70px 80px;
+    text-align: center;
+  }
+  .editorial.reverse .editorial-text { background: var(--white); }
+
+  .editorial-label {
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    font-weight: 600;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .editorial-title {
+    font-family: 'Libre Baskerville', serif;
+    font-size: clamp(24px, 2.8vw, 42px);
+    font-weight: 400;
+    color: var(--navy);
+    margin-bottom: 24px;
+    line-height: 1.2;
+  }
+  .editorial-body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.9;
+    color: rgba(26,26,46,0.65);
+    font-weight: 300;
+    max-width: 420px;
+    margin-bottom: 32px;
+  }
+  .editorial-link {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    font-weight: 600;
+    color: var(--gold);
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: gap 0.2s ease;
+  }
+  .editorial-link::after { content: '→'; font-size: 14px; }
+  .editorial-link:hover { gap: 18px; }
+
+  :root { --off-white: #f0eeeb; }
   @media (max-width: 900px) {
     .header-top { padding: 12px 20px; flex-wrap: wrap; }
     .header-top-center { order: 3; flex-basis: 100%; padding-top: 8px; }
     .carousel { height: 40vh; min-height: 280px; }
     .panels { flex-direction: column; height: auto; }
     .panel { height: 280px; flex: none; }
-    .locations { flex-direction: column; }
-    .location-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); width: 100%; justify-content: flex-start; padding: 24px 28px; }
+    .editorial { flex-direction: column; min-height: auto; }
+    .editorial.reverse { flex-direction: column; }
+    .editorial-img { height: 320px; flex: none; }
+    .editorial-text { padding: 50px 40px; }
     .footer { flex-direction: column; gap: 10px; text-align: center; padding: 16px 20px; }
     .footer-right { justify-content: center; }
     .footer-center { order: -1; }
@@ -309,6 +386,10 @@
     .header-top-center .banner-headline { white-space: normal; font-size: 16px; }
     .carousel { height: 35vh; min-height: 220px; }
     .panel { height: 240px; }
+    .editorial-img { height: 240px; }
+    .editorial-text { padding: 36px 24px; }
+    .editorial-title { font-size: 26px; }
+    .editorial-body { font-size: 13px; }
     .footer { padding: 14px; }
   }
 
@@ -388,24 +469,32 @@
   </a>
 </section>
 
-<!-- LOCATIONS -->
-<div class="locations">
-  <a class="location-item" href="https://sgbaldwins.com/about/locations/location-strand" target="_blank" rel="noopener">
-    <div class="location-dot"></div>
-    <div class="location-text">
-      <span class="location-label">Our Locations</span>
-      <span class="location-name">London, United Kingdom</span>
-      <span class="location-sub">399 Strand, WC2R 0LP</span>
-    </div>
-  </a>
-  <a class="location-item" href="singapore.html">
-    <div class="location-dot new"></div>
-    <div class="location-text">
-      <span class="location-label">Opening Soon <span class="location-new-badge">New</span></span>
-      <span class="location-name">Singapore</span>
-      <span class="location-sub">Asia Pacific Office</span>
-    </div>
-  </a>
+<!-- EDITORIAL: London (image left, text right) -->
+<div class="editorial">
+  <div class="editorial-img">
+    <img src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/SG_Old_Van1__1_.png"
+         alt="Stanley Gibbons, The Strand">
+  </div>
+  <div class="editorial-text">
+    <span class="editorial-label">Our London Home</span>
+    <h2 class="editorial-title">Our shop</h2>
+    <p class="editorial-body">Stanley Gibbons began as a stamp counter within a family business in Plymouth in 1856. Today at its West End emporium, it offers the broadest retail philatelic stock available anywhere in the world, with over a million stamps available to browse and purchase.</p>
+    <a class="editorial-link" href="https://sgbaldwins.com/about/locations/location-strand" target="_blank" rel="noopener">Find us at the Strand</a>
+  </div>
+</div>
+
+<!-- EDITORIAL: Singapore (text left, image right) -->
+<div class="editorial reverse">
+  <div class="editorial-img">
+    <img src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/images__4_.jfif"
+         alt="Singapore Office">
+  </div>
+  <div class="editorial-text">
+    <span class="editorial-label">Opening Soon <span style="background:var(--gold);color:var(--navy);font-size:7px;padding:2px 7px;border-radius:2px;margin-left:8px;letter-spacing:0.1em;">NEW</span></span>
+    <h2 class="editorial-title">New Singapore Office</h2>
+    <p class="editorial-body">Stanley Gibbons is expanding its global footprint with the opening of a new Asia Pacific office in Singapore. A landmark moment for the world's oldest and most trusted philatelic company — bringing 170 years of expertise to collectors across the region.</p>
+    <a class="editorial-link" href="singapore.html">Discover more</a>
+  </div>
 </div>
 
 <!-- FOOTER -->
