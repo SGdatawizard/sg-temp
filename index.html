@@ -39,6 +39,7 @@
     align-items: center;
     gap: 16px;
     flex-shrink: 0;
+    min-width: 180px;
   }
   .header-top-left .warrant {
     height: 80px;
@@ -71,7 +72,15 @@
     font-weight: 400;
   }
   .header-top-center .banner-body strong { color: var(--navy); font-weight: 600; }
-  .header-top-right { font-size: 10px; letter-spacing: 0.1em; color: var(--navy-mid); font-weight: 500; flex-shrink: 0; }
+  .header-top-right {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--navy-mid);
+    font-weight: 500;
+    flex-shrink: 0;
+    text-align: right;
+    min-width: 180px;
+  }
 
   /* ── NAV STRIP ── */
   .nav-strip {
@@ -102,7 +111,9 @@
     padding: 14px 0;
     white-space: nowrap;
     flex-shrink: 0;
+    width: 80px;
   }
+  .nav-side:last-child { text-align: right; }
 
   .nav-menu {
     display: flex;
