@@ -121,46 +121,122 @@
   }
   .header-bottom .ann .dot { margin: 0 10px; opacity: 0.35; color: var(--white); }
 
-  /* ── CAROUSEL ── */
-  .carousel {
+  /* ── SPLIT HERO ── */
+  .hero {
     position: relative;
-    height: 58vh;
-    min-height: 380px;
+    background: var(--white);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
     overflow: hidden;
+    min-height: 520px;
+    border-bottom: 1px solid var(--border-dark);
   }
-  .carousel-slide {
+
+  /* penny black background, very faint */
+  .hero-bg-img {
     position: absolute;
     inset: 0;
+    background-image: url('https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/how_to_penny_black.png');
     background-size: cover;
     background-position: center;
-    opacity: 0;
-    transition: opacity 1.2s ease;
+    opacity: 0.06;
+    filter: grayscale(1);
   }
-  .carousel-slide::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(14,26,46,0.1), rgba(14,26,46,0.5));
-  }
-  .carousel-slide.active { opacity: 1; }
-  .carousel-dots {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+
+  .hero-inner {
+    position: relative;
+    z-index: 2;
     display: flex;
-    gap: 8px;
-    z-index: 3;
+    align-items: flex-end;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
   }
-  .carousel-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.35);
-    cursor: pointer;
-    transition: background 0.3s ease;
-    border: none; padding: 0;
+
+  /* Characters */
+  .hero-character {
+    flex-shrink: 0;
+    position: relative;
+    bottom: 0;
   }
-  .carousel-dot.active { background: var(--gold); }
+  .hero-character img {
+    display: block;
+    width: auto;
+    height: 420px;
+    object-fit: contain;
+    object-position: bottom;
+  }
+  .hero-character.victoria img { transform: scaleX(-1); }
+
+  /* Centre text block */
+  .hero-text {
+    flex: 1;
+    text-align: center;
+    padding: 60px 40px 50px;
+    max-width: 600px;
+  }
+  .hero-text .coming-soon-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 9px;
+    letter-spacing: 0.4em;
+    color: var(--gold);
+    margin-bottom: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .hero-text .coming-soon-label::before,
+  .hero-text .coming-soon-label::after {
+    content: '';
+    height: 1px;
+    width: 36px;
+    background: var(--gold);
+    opacity: 0.6;
+  }
+  .hero-text h1 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: clamp(22px, 2.8vw, 42px);
+    font-weight: 400;
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 18px;
+    white-space: nowrap;
+  }
+  .hero-text h1 em {
+    color: var(--gold);
+    font-style: italic;
+    font-weight: 300;
+  }
+  .hero-text .hero-sub {
+    font-family: 'Libre Baskerville', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: rgba(26,26,46,0.6);
+    margin-bottom: 20px;
+  }
+  .hero-text .hero-body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    line-height: 1.8;
+    color: rgba(26,26,46,0.55);
+    font-weight: 300;
+    margin-bottom: 28px;
+  }
+  .hero-text .hero-body strong {
+    color: var(--navy);
+    font-weight: 500;
+  }
+  .hero-divider {
+    width: 1px;
+    background: var(--border-dark);
+    align-self: stretch;
+    flex-shrink: 0;
+    opacity: 0.5;
+  }
 
   /* ── PANELS ── */
   .panels {
@@ -292,11 +368,16 @@
 
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
-    .header { padding: 12px 20px; flex-wrap: wrap; }
-    .header-center { order: 3; flex-basis: 100%; padding-top: 6px; }
-    .banner { padding: 48px 24px; }
-    .banner-headline { white-space: normal; }
-    .carousel { height: 300px; }
+    .header-top { padding: 12px 20px; flex-wrap: wrap; }
+    .header-top-center { order: 3; flex-basis: 100%; padding-top: 8px; }
+    .hero { min-height: auto; }
+    .hero-inner { flex-direction: column; align-items: center; padding: 0; }
+    .hero-character img { height: 220px; }
+    .hero-character.victoria { order: 1; }
+    .hero-text { order: 2; padding: 40px 24px; }
+    .hero-text h1 { white-space: normal; }
+    .hero-character.postman { order: 3; }
+    .hero-divider { display: none; }
     .panels { flex-direction: column; height: auto; }
     .panel { height: 280px; flex: none; }
     .locations { flex-direction: column; }
@@ -306,20 +387,18 @@
     .footer-center { order: -1; }
   }
   @media (max-width: 540px) {
-    .header { padding: 10px 14px; }
-    .header-left .warrant { height: 38px; }
-    .header-left .sg-logo { height: 32px; padding-left: 10px; }
-    .header-right { display: none; }
-    .header-center { font-size: 9px; }
-    .header-center em { font-size: 11px; }
-    .banner { padding: 36px 18px; }
-    .banner-body { font-size: 13px; }
-    .carousel { height: 240px; }
+    .header-top { padding: 10px 14px; }
+    .header-top-left .warrant { height: 38px; }
+    .header-top-left .sg-logo { height: 32px; padding-left: 10px; }
+    .header-top-right { display: none; }
+    .header-top-center .banner-headline { white-space: normal; font-size: 16px; }
+    .hero-character img { height: 160px; }
+    .hero-text { padding: 28px 18px; }
+    .hero-text h1 { font-size: 20px; white-space: normal; }
     .panel { height: 240px; }
-    .panel-title { font-size: 20px; }
-    .panel:hover .panel-title { font-size: 22px; }
     .footer { padding: 14px; }
   }
+
 </style>
 </head>
 <body>
@@ -354,17 +433,42 @@
   </div>
 </div>
 
-<!-- CAROUSEL -->
-<div class="carousel" id="carousel">
-  <div class="carousel-slide active" style="background-image: url('https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/21.jpg')"></div>
-  <div class="carousel-slide" style="background-image: url('https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/17.jpg')"></div>
-  <div class="carousel-slide" style="background-image: url('https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/16.webp')"></div>
-  <div class="carousel-dots">
-    <button class="carousel-dot active" onclick="goToSlide(0)"></button>
-    <button class="carousel-dot" onclick="goToSlide(1)"></button>
-    <button class="carousel-dot" onclick="goToSlide(2)"></button>
+<!-- SPLIT HERO -->
+<section class="hero">
+  <div class="hero-bg-img"></div>
+  <div class="hero-inner">
+
+    <!-- Victoria (left) -->
+    <div class="hero-character victoria">
+      <img src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/victoria-2x.png"
+           alt="Queen Victoria illustration">
+    </div>
+
+    <div class="hero-divider"></div>
+
+    <!-- Centre text -->
+    <div class="hero-text">
+      <div class="coming-soon-label">Coming Soon</div>
+      <h1>We're building <em>something new.</em></h1>
+      <p class="hero-sub">A new home for collectables.</p>
+      <p class="hero-body">
+        For 170 years, Stanley Gibbons has set the standard for stamp collecting. With Baldwin's
+        now part of the family, we're shaping a new destination for a broader world of collecting
+        — same standard, same leading specialists, more to discover.
+        <strong> For more, follow the links below.</strong>
+      </p>
+    </div>
+
+    <div class="hero-divider"></div>
+
+    <!-- Postman (right) -->
+    <div class="hero-character postman">
+      <img src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/postman-2x.png"
+           alt="Victorian postman illustration">
+    </div>
+
   </div>
-</div>
+</section>
 
 <!-- PANELS -->
 <section class="panels">
@@ -426,19 +530,7 @@
   </div>
 </footer>
 
-<script>
-  let current = 0;
-  const slides = document.querySelectorAll('.carousel-slide');
-  const dots = document.querySelectorAll('.carousel-dot');
-  function goToSlide(n) {
-    slides[current].classList.remove('active');
-    dots[current].classList.remove('active');
-    current = n;
-    slides[current].classList.add('active');
-    dots[current].classList.add('active');
-  }
-  setInterval(() => goToSlide((current + 1) % slides.length), 4000);
-</script>
+
 
 </body>
 </html>
