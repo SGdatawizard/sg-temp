@@ -14,6 +14,7 @@
     --navy-light: #1d2f4f;
     --gold: #c9a84c;
     --white: #ffffff;
+    --off-white: #f0eeeb;
     --text-muted: rgba(255,255,255,0.55);
     --border-dark: rgba(26,26,46,0.12);
     --border-gold: rgba(201,168,76,0.25);
@@ -21,13 +22,9 @@
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { height: auto; }
-  body {
-    font-family: 'Montserrat', sans-serif;
-    background: var(--navy);
-    color: var(--white);
-  }
+  body { font-family: 'Montserrat', sans-serif; background: var(--navy); color: var(--white); }
 
-  /* ── HEADER TOP (white) ── */
+  /* ── HEADER TOP ── */
   .header-top {
     background: var(--white);
     display: flex;
@@ -44,20 +41,17 @@
     flex-shrink: 0;
   }
   .header-top-left .warrant {
-    height: 52px;
+    height: 80px;
     width: auto;
     filter: brightness(0) saturate(100%) invert(13%) sepia(37%) saturate(800%) hue-rotate(185deg) brightness(85%);
   }
   .header-top-left .sg-logo {
-    height: 44px;
+    height: 68px;
     width: auto;
     border-left: 1px solid var(--border-dark);
-    padding-left: 16px;
+    padding-left: 20px;
   }
-  .header-top-center {
-    flex: 1;
-    text-align: center;
-  }
+  .header-top-center { flex: 1; text-align: center; }
   .header-top-center .banner-headline {
     font-family: 'Libre Baskerville', serif;
     font-size: clamp(16px, 1.8vw, 26px);
@@ -66,11 +60,7 @@
     white-space: nowrap;
     margin-bottom: 4px;
   }
-  .header-top-center .banner-headline em {
-    color: var(--gold);
-    font-style: italic;
-    font-weight: 300;
-  }
+  .header-top-center .banner-headline em { color: var(--gold); font-style: italic; font-weight: 300; }
   .header-top-center .banner-body {
     font-family: 'Open Sans', sans-serif;
     font-size: 12px;
@@ -80,48 +70,108 @@
     margin: 0 auto;
     font-weight: 400;
   }
-  .header-top-center .banner-body strong {
-    color: var(--navy);
-    font-weight: 600;
-  }
-  .header-top-right {
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    color: var(--navy-mid);
-    font-weight: 500;
-    flex-shrink: 0;
-    text-align: right;
-  }
+  .header-top-center .banner-body strong { color: var(--navy); font-weight: 600; }
+  .header-top-right { font-size: 10px; letter-spacing: 0.1em; color: var(--navy-mid); font-weight: 500; flex-shrink: 0; }
 
-  /* ── HEADER BOTTOM (navy strip) ── */
-  .header-bottom {
+  /* ── NAV STRIP ── */
+  .nav-strip {
     background: var(--navy-mid);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 40px;
     border-bottom: 1px solid var(--border-gold);
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 200;
   }
-  .header-bottom .ann {
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+  }
+  .nav-ann {
     font-family: 'Montserrat', sans-serif;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 500;
     letter-spacing: 0.14em;
     color: var(--gold);
-    text-align: center;
+    padding: 12px 0;
+    white-space: nowrap;
   }
-  .header-bottom .ann em {
+  .nav-ann em {
     font-style: italic;
     font-family: 'Libre Baskerville', serif;
-    font-size: 13px;
+    font-size: 12px;
     color: var(--white);
   }
-  .header-bottom .ann .dot { margin: 0 10px; opacity: 0.35; color: var(--white); }
+  .nav-ann .dot { margin: 0 8px; opacity: 0.35; color: var(--white); }
 
-  /* ── CAROUSEL HERO ── */
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 0;
+  }
+  .nav-item {
+    position: relative;
+  }
+  .nav-item > a {
+    display: block;
+    padding: 14px 20px;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    font-weight: 600;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+  }
+  .nav-item > a:hover,
+  .nav-item:hover > a { color: var(--white); }
+  .nav-item > a .nav-arrow {
+    font-size: 8px;
+    margin-left: 6px;
+    opacity: 0.6;
+    transition: transform 0.2s ease;
+    display: inline-block;
+  }
+  .nav-item:hover > a .nav-arrow { transform: rotate(180deg); }
+
+  /* Dropdown */
+  .nav-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--navy);
+    border: 1px solid var(--border-gold);
+    border-top: 2px solid var(--gold);
+    min-width: 200px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(6px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 300;
+  }
+  .nav-item:hover .nav-dropdown {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+  }
+  .nav-dropdown a {
+    display: block;
+    padding: 12px 20px;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    transition: color 0.2s, background 0.2s;
+  }
+  .nav-dropdown a:last-child { border-bottom: none; }
+  .nav-dropdown a:hover { color: var(--gold); background: rgba(255,255,255,0.03); }
+
+  /* ── CAROUSEL ── */
   .carousel {
     position: relative;
     height: 65vh;
@@ -140,12 +190,60 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba(14,26,46,0.1), rgba(14,26,46,0.5));
+    background: linear-gradient(to bottom, rgba(14,26,46,0.15) 0%, rgba(14,26,46,0.65) 100%);
   }
   .carousel-slide.active { opacity: 1; }
+
+  /* Slide CTA content */
+  .slide-content {
+    position: absolute;
+    bottom: 70px;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    text-align: center;
+    animation: none;
+    pointer-events: none;
+  }
+  .carousel-slide.active .slide-content { pointer-events: all; }
+  .slide-label {
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .slide-title {
+    font-family: 'Libre Baskerville', serif;
+    font-size: clamp(24px, 3.5vw, 52px);
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 24px;
+    display: block;
+  }
+  .slide-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 32px;
+    border: 1px solid var(--gold);
+    color: var(--white);
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease;
+    background: rgba(14,26,46,0.4);
+  }
+  .slide-btn::after { content: '→'; font-size: 13px; }
+  .slide-btn:hover { background: var(--gold); color: var(--navy); }
+
   .carousel-dots {
     position: absolute;
-    bottom: 20px;
+    bottom: 24px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -180,139 +278,23 @@
     outline: 3px solid transparent;
     transition: outline 0.3s ease, box-shadow 0.3s ease;
   }
-  .panel:hover {
-    outline: 3px solid rgba(255,255,255,0.75);
-    box-shadow: inset 0 0 60px rgba(201,168,76,0.08);
-    z-index: 1;
-  }
-  .panel-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    filter: brightness(0.35) saturate(0.5);
-    transition: filter 0.4s ease;
-  }
+  .panel:hover { outline: 3px solid rgba(255,255,255,0.75); box-shadow: inset 0 0 60px rgba(201,168,76,0.08); z-index: 1; }
+  .panel-img { width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.35) saturate(0.5); transition: filter 0.4s ease; }
   .panel:hover .panel-img { filter: brightness(0.48) saturate(0.65); }
-  .panel-content {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 30px;
-    text-align: center;
-  }
-  .panel-tag {
-    font-size: 11px;
-    letter-spacing: 0.3em;
-    font-weight: 600;
-    color: rgba(255,255,255,0.55);
-    text-transform: uppercase;
-    margin-bottom: 16px;
-    transition: color 0.3s ease, letter-spacing 0.3s ease;
-  }
+  .panel-content { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px; text-align: center; }
+  .panel-tag { font-size: 11px; letter-spacing: 0.3em; font-weight: 600; color: rgba(255,255,255,0.55); text-transform: uppercase; margin-bottom: 16px; transition: color 0.3s ease, letter-spacing 0.3s ease; }
   .panel:hover .panel-tag { color: rgba(255,255,255,0.9); letter-spacing: 0.35em; }
-  .panel-title {
-    font-family: 'Libre Baskerville', serif;
-    font-size: clamp(20px, 2.2vw, 32px);
-    font-weight: 700;
-    line-height: 1.2;
-    color: var(--white);
-    margin-bottom: 20px;
-    transition: font-size 0.3s ease;
-  }
+  .panel-title { font-family: 'Libre Baskerville', serif; font-size: clamp(20px, 2.2vw, 32px); font-weight: 700; line-height: 1.2; color: var(--white); margin-bottom: 20px; transition: font-size 0.3s ease; }
   .panel:hover .panel-title { font-size: clamp(23px, 2.5vw, 36px); }
-  .panel-link {
-    font-size: 11px;
-    letter-spacing: 0.3em;
-    font-weight: 600;
-    color: var(--gold);
-    text-transform: uppercase;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-  }
+  .panel-link { font-size: 11px; letter-spacing: 0.3em; font-weight: 600; color: var(--gold); text-transform: uppercase; display: inline-flex; align-items: center; gap: 10px; }
   .panel-link::after { content: '→'; font-size: 14px; }
 
-  /* ── LOCATIONS ── */
-  .locations {
-    background: var(--navy);
-    display: flex;
-    border-top: 1px solid var(--border-gold);
-  }
-  .location-item {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 36px 60px;
-    text-decoration: none;
-    color: var(--white);
-    border-right: 1px solid rgba(255,255,255,0.08);
-    transition: background 0.3s ease;
-    flex: 1;
-    justify-content: center;
-  }
-  .location-item:last-child { border-right: none; }
-  .location-item:hover { background: var(--navy-mid); }
-  .location-dot {
-    width: 10px; height: 10px;
-    border-radius: 50%;
-    background: var(--gold);
-    flex-shrink: 0;
-    box-shadow: 0 0 0 4px rgba(201,168,76,0.2);
-  }
-  .location-dot.new { animation: pulse 2s ease infinite; }
-  @keyframes pulse {
-    0%, 100% { box-shadow: 0 0 0 4px rgba(201,168,76,0.2); }
-    50% { box-shadow: 0 0 0 9px rgba(201,168,76,0.08); }
-  }
-  .location-text { text-align: left; }
-  .location-label { font-size: 9px; letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase; display: block; margin-bottom: 5px; font-weight: 600; }
-  .location-name { font-family: 'Libre Baskerville', serif; font-size: 19px; color: var(--white); display: block; }
-  .location-sub { font-size: 10px; color: rgba(255,255,255,0.4); display: block; margin-top: 4px; letter-spacing: 0.05em; }
-  .location-new-badge { font-size: 8px; letter-spacing: 0.12em; font-weight: 600; color: var(--navy); background: var(--gold); padding: 2px 8px; text-transform: uppercase; border-radius: 2px; margin-left: 8px; }
-
-  /* ── FOOTER ── */
-  .footer {
-    background: var(--navy);
-    border-top: 1px solid rgba(201,168,76,0.15);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 18px 40px;
-  }
-  .footer-left { flex: 1; font-size: 10px; color: rgba(255,255,255,0.4); letter-spacing: 0.05em; }
-  .footer-left a { color: var(--gold); text-decoration: none; font-style: italic; font-family: 'Libre Baskerville', serif; }
-  .footer-center { flex: 1; text-align: center; font-size: 10px; letter-spacing: 0.18em; color: var(--gold); font-style: italic; font-family: 'Libre Baskerville', serif; opacity: 0.8; }
-  .footer-right { flex: 1; display: flex; justify-content: flex-end; gap: 24px; font-size: 10px; letter-spacing: 0.12em; }
-  .footer-right a { color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
-  .footer-right a:hover { color: var(--white); }
-
-  /* ── EDITORIAL SPLITS ── */
-  .editorial {
-    display: flex;
-    min-height: 480px;
-  }
+  /* ── EDITORIAL ── */
+  .editorial { display: flex; min-height: 380px; }
   .editorial.reverse { flex-direction: row-reverse; }
-
-  .editorial-img {
-    flex: 1;
-    overflow: hidden;
-    position: relative;
-  }
-  .editorial-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-    filter: grayscale(0.15);
-    transition: transform 0.6s ease;
-  }
+  .editorial-img { flex: 1; overflow: hidden; position: relative; }
+  .editorial-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
   .editorial:hover .editorial-img img { transform: scale(1.03); }
-
   .editorial-text {
     flex: 1;
     background: var(--white);
@@ -320,79 +302,157 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 70px 80px;
+    padding: 50px 70px;
     text-align: center;
   }
-  .editorial.reverse .editorial-text { background: var(--white); }
+  .editorial-label { font-size: 9px; letter-spacing: 0.3em; font-weight: 600; color: var(--gold); text-transform: uppercase; margin-bottom: 16px; }
+  .editorial-title { font-family: 'Libre Baskerville', serif; font-size: clamp(24px, 2.4vw, 36px); font-weight: 400; color: var(--navy); margin-bottom: 20px; line-height: 1.2; }
+  .editorial-body { font-family: 'Open Sans', sans-serif; font-size: 13px; line-height: 1.9; color: rgba(26,26,46,0.65); font-weight: 300; max-width: 380px; margin-bottom: 28px; }
+  .editorial-link { font-size: 10px; letter-spacing: 0.25em; font-weight: 600; color: var(--gold); text-decoration: none; text-transform: uppercase; display: inline-flex; align-items: center; gap: 12px; transition: gap 0.2s ease; }
+  .editorial-link::after { content: '→'; font-size: 14px; }
+  .editorial-link:hover { gap: 18px; }
 
-  .editorial-label {
-    font-size: 9px;
-    letter-spacing: 0.3em;
+  /* ── FOOTER ── */
+  .footer-main {
+    background: var(--navy-mid);
+    padding: 60px 40px 40px;
+    border-top: 1px solid var(--border-gold);
+  }
+  .footer-nav {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+  }
+  .footer-nav a {
+    font-size: 10px;
+    letter-spacing: 0.2em;
     font-weight: 600;
-    color: var(--gold);
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
     text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .footer-nav a:hover { color: var(--white); }
+
+  .footer-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto 48px;
+    text-align: center;
+  }
+  .footer-col-title {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+  .footer-col-body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.5);
+    font-weight: 300;
     margin-bottom: 20px;
   }
-  .editorial-title {
-    font-family: 'Libre Baskerville', serif;
-    font-size: clamp(28px, 2.8vw, 40px);
-    font-weight: 400;
-    color: var(--navy);
-    margin-bottom: 24px;
-    line-height: 1.2;
-  }
-  .editorial-body {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 14px;
-    line-height: 1.9;
-    color: rgba(26,26,46,0.65);
-    font-weight: 300;
-    max-width: 420px;
-    margin-bottom: 32px;
-  }
-  .editorial-link {
+  .footer-col-link {
     font-size: 10px;
-    letter-spacing: 0.25em;
+    letter-spacing: 0.22em;
     font-weight: 600;
     color: var(--gold);
     text-decoration: none;
     text-transform: uppercase;
     display: inline-flex;
     align-items: center;
-    gap: 12px;
-    transition: gap 0.2s ease;
+    gap: 10px;
+    transition: gap 0.2s;
   }
-  .editorial-link::after { content: '→'; font-size: 14px; }
-  .editorial-link:hover { gap: 18px; }
+  .footer-col-link::after { content: '→'; font-size: 13px; }
+  .footer-col-link:hover { gap: 14px; }
+  .footer-col-link + .footer-col-link { display: block; margin-top: 10px; }
 
-  :root { --off-white: #f0eeeb; }
+  .footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 28px;
+  }
+  .footer-social a {
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 18px;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+  }
+  .footer-social a:hover { opacity: 1; }
+
+  .footer-bottom {
+    background: var(--navy);
+    padding: 16px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .footer-bottom a {
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    color: rgba(255,255,255,0.4);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .footer-bottom a:hover { color: var(--white); }
+  .footer-bottom .copyright {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.3);
+    text-transform: uppercase;
+    width: 100%;
+    text-align: center;
+    margin-top: 8px;
+  }
+
+  /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     .header-top { padding: 12px 20px; flex-wrap: wrap; }
     .header-top-center { order: 3; flex-basis: 100%; padding-top: 8px; }
-    .carousel { height: 40vh; min-height: 280px; }
+    .nav-inner { flex-direction: column; gap: 0; padding: 0 20px; }
+    .nav-ann { padding: 10px 0; }
+    .nav-menu { width: 100%; justify-content: space-around; border-top: 1px solid rgba(255,255,255,0.08); }
+    .nav-item > a { padding: 10px 10px; font-size: 9px; }
+    .carousel { height: 50vh; min-height: 300px; }
     .panels { flex-direction: column; height: auto; }
     .panel { height: 280px; flex: none; }
     .editorial { flex-direction: column; min-height: auto; }
     .editorial.reverse { flex-direction: column; }
-    .editorial-img { height: 320px; flex: none; }
-    .editorial-text { padding: 50px 40px; }
-    .footer { flex-direction: column; gap: 10px; text-align: center; padding: 16px 20px; }
-    .footer-right { justify-content: center; }
-    .footer-center { order: -1; }
+    .editorial-img { height: 280px; flex: none; }
+    .editorial-text { padding: 40px 30px; }
+    .footer-cols { grid-template-columns: 1fr; gap: 40px; }
+    .footer-nav { gap: 20px; }
   }
   @media (max-width: 540px) {
     .header-top { padding: 10px 14px; }
     .header-top-right { display: none; }
     .header-top-center .banner-headline { white-space: normal; font-size: 16px; }
-    .carousel { height: 35vh; min-height: 220px; }
+    .nav-menu { flex-wrap: wrap; }
+    .nav-item > a { font-size: 8px; padding: 8px 8px; }
+    .carousel { height: 55vh; min-height: 280px; }
     .panel { height: 240px; }
-    .editorial-img { height: 240px; }
-    .editorial-text { padding: 36px 24px; }
-    .editorial-title { font-size: 26px; }
-    .editorial-body { font-size: 13px; }
-    .footer { padding: 14px; }
+    .editorial-img { height: 220px; }
+    .editorial-text { padding: 32px 20px; }
+    .footer-main { padding: 40px 20px 30px; }
+    .footer-bottom { padding: 14px 20px; }
   }
-
 </style>
 </head>
 <body>
@@ -403,11 +463,11 @@
     <img class="warrant"
       src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/KCWarrant%20WHite.png"
       alt="Royal Warrant"
-      style="height: 80px; width: auto; filter: brightness(0) saturate(100%) invert(13%) sepia(37%) saturate(800%) hue-rotate(185deg) brightness(85%);">
+      style="height:80px;width:auto;filter:brightness(0) saturate(100%) invert(13%) sepia(37%) saturate(800%) hue-rotate(185deg) brightness(85%);">
     <img class="sg-logo"
       src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/SG%20Logo%20Navy.png"
       alt="Stanley Gibbons"
-      style="height: 68px; width: auto; border-left: 1px solid var(--border-dark); padding-left: 20px;"
+      style="height:68px;width:auto;border-left:1px solid var(--border-dark);padding-left:20px;"
       onerror="this.style.display='none'">
   </div>
   <div class="header-top-center">
@@ -422,18 +482,71 @@
   <div class="header-top-right">399 Strand, WC2R 0LP</div>
 </div>
 
-<!-- HEADER BOTTOM (sticky navy strip) -->
-<div class="header-bottom">
-  <div class="ann">
-    1856 <span class="dot">·</span> <em>Celebrating 170 Years</em> <span class="dot">·</span> 2026
+<!-- NAV STRIP -->
+<nav class="nav-strip">
+  <div class="nav-inner">
+    <div class="nav-ann">
+      1856 <span class="dot">·</span> <em>Celebrating 170 Years</em> <span class="dot">·</span> 2026
+    </div>
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <a href="https://sgbaldwins.com/stamps-buy-now" target="_blank" rel="noopener">Online Store <span class="nav-arrow">▾</span></a>
+        <div class="nav-dropdown">
+          <a href="https://sgbaldwins.com/stamps-buy-now" target="_blank" rel="noopener">GB Stamps</a>
+          <a href="https://sgbaldwins.com/stamps-buy-now" target="_blank" rel="noopener">Commonwealth Stamps</a>
+          <a href="https://sgbaldwins.com/about-us/stanley-gibbons" target="_blank" rel="noopener">Publications</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="https://sgbaldwins.com/auctions/upcoming-auctions" target="_blank" rel="noopener">Auctions <span class="nav-arrow">▾</span></a>
+        <div class="nav-dropdown">
+          <a href="https://sgbaldwins.com/auctions/upcoming-auctions" target="_blank" rel="noopener">Upcoming Auctions</a>
+          <a href="https://sgbaldwins.com/auctions/upcoming-auctions" target="_blank" rel="noopener">Past Results</a>
+          <a href="https://sgbaldwins.com/auctions/upcoming-auctions" target="_blank" rel="noopener">Sell With Us</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="https://sgbaldwins.com/about-us/stanley-gibbons" target="_blank" rel="noopener">Publishing <span class="nav-arrow">▾</span></a>
+        <div class="nav-dropdown">
+          <a href="https://sgbaldwins.com/about-us/stanley-gibbons" target="_blank" rel="noopener">Catalogues</a>
+          <a href="https://sgbaldwins.com/about-us/stanley-gibbons" target="_blank" rel="noopener">Gibbons Stamp Monthly</a>
+          <a href="https://sgbaldwins.com/about-us/stanley-gibbons" target="_blank" rel="noopener">Digital Editions</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="https://sgbaldwins.com/about/locations/location-strand" target="_blank" rel="noopener">Visit Us <span class="nav-arrow">▾</span></a>
+        <div class="nav-dropdown">
+          <a href="https://sgbaldwins.com/about/locations/location-strand" target="_blank" rel="noopener">London — The Strand</a>
+          <a href="singapore.html">Singapore — Asia Pacific</a>
+        </div>
+      </li>
+    </ul>
   </div>
-</div>
+</nav>
 
 <!-- CAROUSEL -->
 <div class="carousel">
-  <div class="carousel-slide active" style="background-image: url('https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/21.jpg')"></div>
-  <div class="carousel-slide" style="background-image: url('https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/17.jpg')"></div>
-  <div class="carousel-slide" style="background-image: url('https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/16.webp')"></div>
+  <div class="carousel-slide active" style="background-image:url('https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/21.jpg')">
+    <div class="slide-content">
+      <span class="slide-label">Auctions</span>
+      <span class="slide-title">The Auction House</span>
+      <a class="slide-btn" href="https://sgbaldwins.com/auctions/upcoming-auctions" target="_blank" rel="noopener">View Upcoming Auctions</a>
+    </div>
+  </div>
+  <div class="carousel-slide" style="background-image:url('https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/17.jpg')">
+    <div class="slide-content">
+      <span class="slide-label">Retail</span>
+      <span class="slide-title">Online Shop</span>
+      <a class="slide-btn" href="https://sgbaldwins.com/stamps-buy-now" target="_blank" rel="noopener">Browse Stamps</a>
+    </div>
+  </div>
+  <div class="carousel-slide" style="background-image:url('https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/16.webp')">
+    <div class="slide-content">
+      <span class="slide-label">Publications</span>
+      <span class="slide-title">Physical & Digital Catalogues</span>
+      <a class="slide-btn" href="https://sgbaldwins.com/about-us/stanley-gibbons" target="_blank" rel="noopener">View Publications</a>
+    </div>
+  </div>
   <div class="carousel-dots">
     <button class="carousel-dot active" onclick="goToSlide(0)"></button>
     <button class="carousel-dot" onclick="goToSlide(1)"></button>
@@ -469,11 +582,10 @@
   </a>
 </section>
 
-<!-- EDITORIAL: London (image left, text right) -->
+<!-- EDITORIAL: London -->
 <div class="editorial">
   <div class="editorial-img">
-    <img src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/SG_Old_Van1__1_.png"
-         alt="Stanley Gibbons, The Strand">
+    <img src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/SG_Old_Van1__1_.png" alt="Stanley Gibbons, The Strand">
   </div>
   <div class="editorial-text">
     <span class="editorial-label">London, United Kingdom</span>
@@ -483,11 +595,10 @@
   </div>
 </div>
 
-<!-- EDITORIAL: Singapore (text left, image right) -->
+<!-- EDITORIAL: Singapore -->
 <div class="editorial reverse">
   <div class="editorial-img">
-    <img src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/images__4_.jfif"
-         alt="Singapore Office">
+    <img src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/images__4_.jfif" alt="Singapore Office">
   </div>
   <div class="editorial-text">
     <span class="editorial-label">Asia Pacific</span>
@@ -497,19 +608,48 @@
   </div>
 </div>
 
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-left">
-    Stanleygibbons.com &nbsp;|&nbsp; incorporating <a href="#">Baldwin's</a>
+<!-- FOOTER MAIN -->
+<footer>
+  <div class="footer-main">
+    <div class="footer-nav">
+      <a href="https://sgbaldwins.com/stamps-buy-now" target="_blank" rel="noopener">Online Store</a>
+      <a href="https://sgbaldwins.com/auctions/upcoming-auctions" target="_blank" rel="noopener">Auctions</a>
+      <a href="https://sgbaldwins.com/about-us/stanley-gibbons" target="_blank" rel="noopener">Publishing</a>
+      <a href="https://sgbaldwins.com/about/locations/location-strand" target="_blank" rel="noopener">Visit Us</a>
+      <a href="https://sgbaldwins.com/about/locations/location-strand" target="_blank" rel="noopener">Customer Support</a>
+      <a href="singapore.html">Singapore</a>
+    </div>
+    <div class="footer-cols">
+      <div>
+        <h3 class="footer-col-title">Create an Account</h3>
+        <p class="footer-col-body">Create an account to take advantage of 10% off your first order, wishlists, guides, and more.</p>
+        <a class="footer-col-link" href="https://shop.stanleygibbons.com/account/register" target="_blank" rel="noopener">Register</a>
+        <a class="footer-col-link" href="https://shop.stanleygibbons.com/account/login" target="_blank" rel="noopener">Login</a>
+      </div>
+      <div>
+        <h3 class="footer-col-title">Customer Support</h3>
+        <p class="footer-col-body">08:30 am – 5:00 pm (Mon–Fri)<br><br>+44 1425 472 363</p>
+        <a class="footer-col-link" href="https://sgbaldwins.com/about/locations/location-strand" target="_blank" rel="noopener">Contact Us</a>
+      </div>
+      <div>
+        <h3 class="footer-col-title">Stay Connected</h3>
+        <p class="footer-col-body">Receive updates on our latest stamps, publications, albums & accessories.</p>
+        <a class="footer-col-link" href="https://shop.stanleygibbons.com" target="_blank" rel="noopener">Sign Up Today</a>
+      </div>
+    </div>
+    <div class="footer-social">
+      <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">&#x66;</a>
+      <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter">&#x74;</a>
+      <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">&#x69;</a>
+    </div>
   </div>
-  <div class="footer-center">Since 1856 — 170 Years</div>
-  <div class="footer-right">
-    <a href="https://sgbaldwins.com/about/locations/location-strand" target="_blank" rel="noopener">Contact</a>
+  <div class="footer-bottom">
+    <a href="https://shop.stanleygibbons.com/policies/terms-of-service" target="_blank" rel="noopener">Terms & Conditions</a>
     <a href="https://shop.stanleygibbons.com/policies/privacy-policy" target="_blank" rel="noopener">Privacy</a>
+    <a href="https://shop.stanleygibbons.com/policies/privacy-policy" target="_blank" rel="noopener">Cookies</a>
+    <p class="copyright">© 2026 Stanley Gibbons. All Rights Reserved.</p>
   </div>
 </footer>
-
-
 
 <script>
   let current = 0;
@@ -522,7 +662,7 @@
     slides[current].classList.add('active');
     dots[current].classList.add('active');
   }
-  setInterval(() => goToSlide((current + 1) % slides.length), 4000);
+  setInterval(() => goToSlide((current + 1) % slides.length), 5000);
 </script>
 </body>
 </html>
