@@ -161,6 +161,83 @@
   .footer-bottom a { font-size: 9px; letter-spacing: 0.18em; color: rgba(255,255,255,0.4); text-decoration: underline; text-underline-offset: 3px; text-transform: uppercase; transition: color 0.2s; }
   .footer-bottom a:hover { color: var(--white); }
   .footer-bottom .copyright { font-size: 9px; letter-spacing: 0.12em; color: rgba(255,255,255,0.3); text-transform: uppercase; width: 100%; text-align: center; margin-top: 8px; }
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .header-top { padding: 12px 20px; gap: 12px; }
+    .header-top-right { display: none; }
+    .nav-inner { padding: 0 16px; }
+    .nav-side { font-size: 11px; width: auto; }
+    .nav-item > a { padding: 14px 16px; font-size: 11px; }
+    .split { flex-direction: column; height: auto; }
+    .split.reverse { flex-direction: column; }
+    .split-img { height: 300px; flex: none; }
+    .split-text { padding: 40px 30px; }
+    .address-block { flex-direction: column; }
+    .address-map { min-height: 300px; }
+    .address-text { padding: 40px 30px; }
+    .address-btn { margin-top: 12px; }
+    .three-cols { grid-template-columns: 1fr; }
+    .col-item { border-right: none; }
+    .footer-cols { grid-template-columns: 1fr; gap: 32px; }
+    .footer-nav { gap: 16px; }
+  }
+
+  @media (max-width: 640px) {
+    /* Header */
+    .header-top { flex-direction: column; align-items: center; text-align: center; padding: 16px; }
+    .header-top-left a { gap: 10px; }
+    .header-top-left img:first-child { height: 52px; }
+    .header-top-left img:last-child { height: 44px; padding-left: 12px; }
+    .header-top-center .wordmark { font-size: 18px; letter-spacing: 0.2em; }
+
+    /* Nav — collapse to scrollable strip */
+    .nav-inner { flex-wrap: wrap; justify-content: center; padding: 0 10px; gap: 0; }
+    .nav-side { display: none; }
+    .nav-menu { flex-wrap: wrap; justify-content: center; border-top: 1px solid rgba(255,255,255,0.08); width: 100%; }
+    .nav-item { width: auto; }
+    .nav-item + .nav-item::before { display: none; }
+    .nav-item > a { padding: 10px 12px; font-size: 10px; letter-spacing: 0.12em; }
+    .nav-dropdown { left: 0; transform: none; min-width: 160px; }
+    .nav-item:hover .nav-dropdown { transform: none; }
+
+    /* Hero */
+    .hero { flex-direction: column; height: auto; }
+    .hero-img { height: 240px; flex: none; }
+    .hero-frame-left { border: 5px solid var(--white); border-bottom: 2px solid var(--white); }
+    .hero-frame-right { border: 5px solid var(--white); border-top: 2px solid var(--white); }
+    .hero-overlay { padding: 20px; }
+    .hero-label { font-size: 10px; margin-bottom: 10px; }
+    .hero-title { font-size: 32px; margin-bottom: 8px; }
+    .hero-sub { font-size: 14px; }
+
+    /* Category section */
+    .section-title { font-size: 22px; }
+    .col-item { padding: 36px 24px; }
+
+    /* Split sections */
+    .split-img { height: 260px; }
+    .split-text { padding: 32px 24px; }
+    .split-title { font-size: 22px; }
+
+    /* Team */
+    .team-grid, [style*="grid-template-columns: 1fr 1fr"] {
+      grid-template-columns: 1fr !important;
+      max-width: 320px !important;
+    }
+
+    /* Address */
+    .address-title { font-size: 24px; }
+    .address-text { padding: 32px 24px; }
+    .address-btn { display: block; text-align: center; margin-bottom: 12px; }
+
+    /* Footer */
+    .footer-main { padding: 40px 20px 30px; }
+    .footer-nav { gap: 12px; flex-wrap: wrap; justify-content: center; }
+    .footer-nav a { font-size: 9px; }
+    .footer-cols { grid-template-columns: 1fr; gap: 28px; }
+    .footer-col-title { font-size: 18px; }
+    .footer-bottom { padding: 14px 16px; gap: 16px; }
+  }
 </style>
 </head>
 <body>
@@ -423,5 +500,23 @@
   </div>
 </footer>
 
+<script>
+  // Touch-friendly nav dropdowns for mobile
+  document.querySelectorAll('.nav-item > a').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const dropdown = this.parentElement.querySelector('.nav-dropdown');
+      if (dropdown && window.innerWidth <= 640) {
+        e.preventDefault();
+        const isOpen = dropdown.style.opacity === '1';
+        document.querySelectorAll('.nav-dropdown').forEach(d => { d.style.opacity='0'; d.style.pointerEvents='none'; d.style.transform='translateX(-50%) translateY(6px)'; });
+        if (!isOpen) {
+          dropdown.style.opacity = '1';
+          dropdown.style.pointerEvents = 'all';
+          dropdown.style.transform = 'translateX(-50%) translateY(0)';
+        }
+      }
+    });
+  });
+</script>
 </body>
 </html>
