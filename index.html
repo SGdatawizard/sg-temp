@@ -223,12 +223,12 @@
   /* Slide CTA content */
   .slide-content {
     position: absolute;
-    bottom: 70px;
+    top: 50%;
     left: 0;
     right: 0;
+    transform: translateY(-50%);
     z-index: 2;
     text-align: center;
-    animation: none;
     pointer-events: none;
   }
   .carousel-slide.active .slide-content { pointer-events: all; }
