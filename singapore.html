@@ -15,317 +15,127 @@
     --gold: #c9a84c;
     --white: #ffffff;
     --eggshell: #f7f4f0;
-    --text-dark: #1a1a2e;
     --border-dark: rgba(26,26,46,0.12);
     --border-gold: rgba(201,168,76,0.25);
   }
-
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { height: auto; }
-  body { font-family: 'Montserrat', sans-serif; background: var(--white); color: var(--text-dark); }
+  body { font-family: 'Montserrat', sans-serif; background: var(--white); color: var(--navy); }
 
-  /* ── HEADER TOP ── */
-  .header-top {
-    background: var(--white);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 14px 40px;
-    border-bottom: 1px solid var(--border-dark);
-    gap: 20px;
-  }
-  .header-top-left { display: flex; align-items: center; gap: 16px; flex-shrink: 0; min-width: 180px; }
+  /* ── HEADER ── */
+  .header-top { background: var(--white); display: flex; align-items: center; justify-content: space-between; padding: 14px 40px; border-bottom: 1px solid var(--border-dark); gap: 20px; }
+  .header-top-left { display: flex; align-items: center; flex-shrink: 0; min-width: 180px; }
   .header-top-center { flex: 1; text-align: center; }
-  .header-top-center .wordmark {
-    font-family: 'Libre Baskerville', serif;
-    font-size: clamp(16px, 1.8vw, 22px);
-    font-weight: 400;
-    color: var(--navy);
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    display: block;
-  }
-  .header-top-center .tagline {
-    font-size: 9px;
-    letter-spacing: 0.3em;
-    color: var(--gold);
-    font-weight: 500;
-    margin-top: 4px;
-    display: block;
-  }
+  .header-top-center .wordmark { font-family: 'Libre Baskerville', serif; font-size: clamp(16px, 1.8vw, 22px); font-weight: 400; color: var(--navy); letter-spacing: 0.28em; text-transform: uppercase; display: block; }
+  .header-top-center .tagline { font-size: 9px; letter-spacing: 0.3em; color: var(--gold); font-weight: 500; margin-top: 4px; display: block; }
   .header-top-right { font-size: 10px; letter-spacing: 0.1em; color: var(--navy-mid); font-weight: 500; flex-shrink: 0; text-align: right; min-width: 180px; }
 
-  /* ── NAV STRIP ── */
-  .nav-strip {
-    background: var(--navy-mid);
-    border-bottom: 1px solid var(--border-gold);
-    position: sticky;
-    top: 0;
-    z-index: 200;
-  }
+  /* ── NAV ── */
+  .nav-strip { background: var(--navy-mid); border-bottom: 1px solid var(--border-gold); position: sticky; top: 0; z-index: 200; }
   .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 0 40px; }
   .nav-side { font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.2em; color: var(--gold); padding: 14px 0; white-space: nowrap; flex-shrink: 0; width: 160px; }
   .nav-side:last-child { text-align: right; }
-  .nav-menu { display: flex; align-items: center; list-style: none; gap: 0; flex: 1; justify-content: center; }
+  .nav-menu { display: flex; align-items: center; list-style: none; flex: 1; justify-content: center; }
   .nav-item { position: relative; display: flex; align-items: center; }
-  .nav-item + .nav-item::before { content: ''; width: 2px; height: 22px; background: var(--gold); opacity: 1; flex-shrink: 0; }
-  .nav-item > a { display: block; padding: 18px 30px; font-size: 13px; letter-spacing: 0.18em; font-weight: 600; color: var(--white); text-decoration: none; text-transform: uppercase; transition: color 0.2s ease; white-space: nowrap; text-align: center; }
+  .nav-item + .nav-item::before { content: ''; width: 2px; height: 22px; background: var(--gold); flex-shrink: 0; }
+  .nav-item > a { display: block; padding: 18px 30px; font-size: 13px; letter-spacing: 0.18em; font-weight: 600; color: var(--white); text-decoration: none; text-transform: uppercase; transition: color 0.2s; white-space: nowrap; text-align: center; }
   .nav-item > a:hover, .nav-item:hover > a { color: var(--gold); }
-  .nav-item > a .nav-arrow { font-size: 9px; margin-left: 7px; opacity: 0.6; transition: transform 0.2s ease; display: inline-block; }
+  .nav-item > a .nav-arrow { font-size: 9px; margin-left: 7px; opacity: 0.6; transition: transform 0.2s; display: inline-block; }
   .nav-item:hover > a .nav-arrow { transform: rotate(180deg); }
-  .nav-dropdown { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(6px); background: var(--navy); border: 1px solid var(--border-gold); border-top: 2px solid var(--gold); min-width: 220px; opacity: 0; pointer-events: none; transition: opacity 0.2s ease, transform 0.2s ease; z-index: 300; }
+  .nav-dropdown { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(6px); background: var(--navy); border: 1px solid var(--border-gold); border-top: 2px solid var(--gold); min-width: 220px; opacity: 0; pointer-events: none; transition: opacity 0.2s, transform 0.2s; z-index: 300; }
   .nav-item:hover .nav-dropdown { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
-  .nav-dropdown a { display: block; padding: 12px 24px; font-size: 13px; letter-spacing: 0.18em; color: var(--white); text-decoration: none; text-transform: uppercase; font-weight: 600; border-bottom: 1px solid rgba(201,168,76,0.15); transition: color 0.2s, background 0.2s; text-align: left; }
+  .nav-dropdown a { display: block; padding: 12px 24px; font-size: 13px; letter-spacing: 0.18em; color: var(--white); text-decoration: none; text-transform: uppercase; font-weight: 600; border-bottom: 1px solid rgba(201,168,76,0.15); transition: color 0.2s, background 0.2s; }
   .nav-dropdown a:last-child { border-bottom: none; }
   .nav-dropdown a:hover { color: var(--gold); background: rgba(255,255,255,0.03); }
 
-  /* ── PAGE HERO ── */
-  .page-hero {
+  /* ── HERO ── */
+  .hero {
     position: relative;
-    height: 70vh;
-    min-height: 480px;
-    overflow: hidden;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 580px;
   }
-  .page-hero-bg {
-    position: absolute;
-    inset: 0;
-    background: var(--navy-mid);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 13px;
-    letter-spacing: 0.2em;
-    color: rgba(255,255,255,0.2);
-    text-transform: uppercase;
-  }
-  .page-hero-bg::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(14,26,46,0.3), rgba(14,26,46,0.7));
-  }
-  .page-hero-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    padding: 0 40px;
-  }
-  .page-hero-label {
-    font-size: 10px;
-    letter-spacing: 0.4em;
-    color: var(--gold);
-    font-weight: 600;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-    display: block;
-  }
-  .page-hero-title {
-    font-family: 'Libre Baskerville', serif;
-    font-size: clamp(36px, 5vw, 72px);
-    font-weight: 400;
-    color: var(--white);
-    line-height: 1.1;
-    margin-bottom: 16px;
-  }
-  .page-hero-sub {
-    font-family: 'Libre Baskerville', serif;
-    font-style: italic;
-    font-size: 18px;
-    color: rgba(255,255,255,0.7);
-  }
-
-  /* ── INTRO SECTION ── */
-  .intro {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 80px 40px;
-    text-align: center;
-  }
-  .intro-label { font-size: 9px; letter-spacing: 0.35em; font-weight: 600; color: var(--gold); text-transform: uppercase; margin-bottom: 20px; display: block; }
-  .intro-title { font-family: 'Libre Baskerville', serif; font-size: clamp(24px, 2.8vw, 40px); font-weight: 400; color: var(--navy); margin-bottom: 24px; line-height: 1.3; }
-  .intro-body { font-family: 'Open Sans', sans-serif; font-size: 15px; line-height: 1.9; color: rgba(26,26,46,0.65); font-weight: 300; }
-
-  /* ── IMAGE + TEXT SPLIT ── */
-  .split { display: flex; height: 500px; }
-  .split.reverse { flex-direction: row-reverse; }
-  .split-img {
-    flex: 1;
-    background: var(--navy-light);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    position: relative;
-  }
-  .split-img img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
-  .split-img-placeholder {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 11px;
-    letter-spacing: 0.3em;
-    color: rgba(255,255,255,0.3);
-    text-transform: uppercase;
-    text-align: center;
-  }
-  .split-img-placeholder span {
-    display: block;
-    font-size: 32px;
-    margin-bottom: 12px;
-    opacity: 0.2;
-  }
-  .split-text {
-    flex: 1;
-    background: var(--eggshell);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 60px 70px;
-  }
-  .split-label { font-size: 9px; letter-spacing: 0.35em; font-weight: 600; color: var(--gold); text-transform: uppercase; margin-bottom: 16px; }
-  .split-title { font-family: 'Libre Baskerville', serif; font-size: clamp(22px, 2.2vw, 34px); font-weight: 400; color: var(--navy); margin-bottom: 20px; line-height: 1.2; }
-  .split-body { font-family: 'Open Sans', sans-serif; font-size: 13px; line-height: 1.85; color: rgba(26,26,46,0.65); font-weight: 300; margin-bottom: 28px; }
-  .split-link { font-size: 10px; letter-spacing: 0.25em; font-weight: 600; color: var(--gold); text-decoration: none; text-transform: uppercase; display: inline-flex; align-items: center; gap: 12px; transition: gap 0.2s ease; }
-  .split-link::after { content: '→'; font-size: 14px; }
-  .split-link:hover { gap: 18px; }
-
-  /* ── FULL WIDTH IMAGE ── */
-  .full-img {
-    height: 460px;
-    background: var(--navy-light);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    position: relative;
-  }
-  .full-img img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
-  .full-img-placeholder {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 11px;
-    letter-spacing: 0.3em;
-    color: rgba(255,255,255,0.3);
-    text-transform: uppercase;
-    text-align: center;
-  }
-  .full-img-placeholder span { display: block; font-size: 40px; margin-bottom: 12px; opacity: 0.2; }
-
-  /* ── FRAMED IMAGE PAIR ── */
-  .image-pair {
-    display: flex;
-    gap: 24px;
-    padding: 60px;
-    background: var(--eggshell);
-    border-top: 1px solid var(--border-dark);
-    border-bottom: 1px solid var(--border-dark);
-  }
-  .image-pair-frame {
+  .hero-img {
     flex: 1;
     overflow: hidden;
-    border: 6px solid var(--white);
-    box-shadow: 0 8px 32px rgba(14,26,46,0.18);
-    aspect-ratio: 4/3;
-    position: relative;
   }
-  .image-pair-frame img {
+  .hero-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
     display: block;
-    transition: transform 0.6s ease;
   }
-  .image-pair-frame:hover img { transform: scale(1.04); }
-  .image-pair-caption {
+  .hero-frame-left  { border: 8px solid var(--white); border-right: 4px solid var(--white); }
+  .hero-frame-right { border: 8px solid var(--white); border-left: 4px solid var(--white); }
+  .hero-overlay {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 10px 14px;
-    background: linear-gradient(transparent, rgba(14,26,46,0.65));
-    font-size: 9px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.8);
-    font-weight: 600;
-  }
-
-  /* ── THREE COLUMNS ── */
-  .three-cols {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    border-top: 1px solid var(--border-dark);
-    border-bottom: 1px solid var(--border-dark);
-  }
-  .col-item {
-    padding: 50px 40px;
-    text-align: center;
-    border-right: 1px solid var(--border-dark);
-  }
-  .col-item:last-child { border-right: none; }
-  .col-icon { font-size: 28px; margin-bottom: 16px; display: block; }
-  .col-title { font-family: 'Libre Baskerville', serif; font-size: 20px; font-weight: 400; color: var(--navy); margin-bottom: 12px; }
-  .col-body { font-family: 'Open Sans', sans-serif; font-size: 13px; line-height: 1.8; color: rgba(26,26,46,0.6); font-weight: 300; }
-
-  /* ── ADDRESS BLOCK ── */
-  .address-block {
-    background: var(--navy-mid);
-    display: flex;
-    align-items: stretch;
-  }
-  .address-map {
-    flex: 1;
-    background: var(--navy-light);
-    min-height: 360px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-  .address-map-placeholder {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 11px;
-    letter-spacing: 0.3em;
-    color: rgba(255,255,255,0.3);
-    text-transform: uppercase;
-    text-align: center;
-  }
-  .address-map-placeholder span { display: block; font-size: 36px; margin-bottom: 12px; opacity: 0.25; }
-  .address-text {
-    flex: 1;
-    padding: 60px 70px;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(14,26,46,0.25), rgba(14,26,46,0.65));
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
+    text-align: center;
+    padding: 40px;
+    z-index: 10;
   }
+  .hero-label { font-size: 13px; letter-spacing: 0.35em; color: var(--gold); font-weight: 600; text-transform: uppercase; margin-bottom: 16px; }
+  .hero-title { font-family: 'Libre Baskerville', serif; font-size: clamp(36px, 5vw, 64px); font-weight: 400; color: var(--white); line-height: 1.1; margin-bottom: 14px; }
+  .hero-sub { font-family: 'Libre Baskerville', serif; font-style: italic; font-size: 18px; color: rgba(255,255,255,0.75); }
+
+  /* ── SECTION SHARED ── */
+  .section-label { font-size: 9px; letter-spacing: 0.35em; font-weight: 600; color: var(--gold); text-transform: uppercase; margin-bottom: 14px; display: block; }
+  .section-title { font-family: 'Libre Baskerville', serif; font-size: clamp(22px, 2.5vw, 36px); font-weight: 400; color: var(--navy); margin-bottom: 18px; line-height: 1.2; }
+  .section-body { font-family: 'Open Sans', sans-serif; font-size: 13px; line-height: 1.85; color: rgba(26,26,46,0.65); font-weight: 300; margin-bottom: 24px; }
+  .section-link { font-size: 10px; letter-spacing: 0.25em; font-weight: 600; color: var(--gold); text-decoration: none; text-transform: uppercase; display: inline-flex; align-items: center; gap: 10px; transition: gap 0.2s; }
+  .section-link::after { content: '→'; font-size: 14px; }
+  .section-link:hover { gap: 16px; }
+
+  /* ── SPLIT ── */
+  .split { display: flex; min-height: 440px; }
+  .split.reverse { flex-direction: row-reverse; }
+  .split-img { flex: 1; background: var(--navy-light); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .split-img-placeholder { font-size: 11px; letter-spacing: 0.3em; color: rgba(255,255,255,0.3); text-transform: uppercase; text-align: center; }
+  .split-img-placeholder span { display: block; font-size: 32px; margin-bottom: 12px; opacity: 0.2; }
+  .split-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .split-text { flex: 1; background: var(--eggshell); display: flex; flex-direction: column; justify-content: center; padding: 60px 70px; }
+
+  /* ── CENTRED TEXT SECTION ── */
+  .centred-section { padding: 80px 40px; text-align: center; max-width: 860px; margin: 0 auto; }
+
+  /* ── THREE COLS ── */
+  .three-cols { display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 1px solid var(--border-dark); }
+  .col-item { padding: 50px 40px; text-align: center; border-right: 1px solid var(--border-dark); border-bottom: 1px solid var(--border-dark); }
+  .col-item:last-child { border-right: none; }
+  .col-icon { font-size: 28px; margin-bottom: 14px; display: block; }
+  .col-title { font-family: 'Libre Baskerville', serif; font-size: 20px; font-weight: 400; color: var(--navy); margin-bottom: 10px; }
+  .col-body { font-family: 'Open Sans', sans-serif; font-size: 13px; line-height: 1.8; color: rgba(26,26,46,0.6); font-weight: 300; }
+
+  /* ── NAVY BAND ── */
+  .navy-band { background: var(--navy-mid); padding: 70px 80px; }
+  .navy-band .section-title { color: var(--white); }
+  .navy-band .section-body { color: rgba(255,255,255,0.6); }
+
+  /* ── TEAM GRID ── */
+  .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; padding: 70px 80px; background: var(--white); border-top: 1px solid var(--border-dark); }
+  .team-card { text-align: center; }
+  .team-photo { width: 100%; aspect-ratio: 1; background: var(--navy-light); margin-bottom: 16px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .team-photo-placeholder { font-size: 10px; letter-spacing: 0.2em; color: rgba(255,255,255,0.3); text-transform: uppercase; }
+  .team-name { font-family: 'Libre Baskerville', serif; font-size: 18px; color: var(--navy); margin-bottom: 4px; }
+  .team-role { font-size: 10px; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; }
+  .team-email { font-size: 12px; color: rgba(26,26,46,0.5); text-decoration: none; }
+  .team-email:hover { color: var(--gold); }
+
+  /* ── ADDRESS BLOCK ── */
+  .address-block { background: var(--navy-mid); display: flex; align-items: stretch; }
+  .address-map { flex: 1; min-height: 400px; overflow: hidden; }
+  .address-map iframe { width: 100%; height: 100%; border: 0; display: block; min-height: 400px; }
+  .address-text { flex: 1; padding: 60px 70px; display: flex; flex-direction: column; justify-content: center; }
   .address-label { font-size: 9px; letter-spacing: 0.35em; font-weight: 600; color: var(--gold); text-transform: uppercase; margin-bottom: 20px; }
   .address-title { font-family: 'Libre Baskerville', serif; font-size: 32px; font-weight: 400; color: var(--white); margin-bottom: 28px; line-height: 1.2; }
   .address-detail { font-family: 'Open Sans', sans-serif; font-size: 14px; line-height: 2; color: rgba(255,255,255,0.65); font-weight: 300; margin-bottom: 28px; }
   .address-detail strong { color: var(--gold); font-weight: 600; display: block; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; margin-top: 16px; margin-bottom: 4px; }
-  .address-link { font-size: 10px; letter-spacing: 0.25em; font-weight: 600; color: var(--gold); text-decoration: none; text-transform: uppercase; display: inline-flex; align-items: center; gap: 12px; border: 1px solid var(--gold); padding: 12px 24px; transition: background 0.3s, color 0.3s; }
-  .address-link:hover { background: var(--gold); color: var(--navy); }
-
-  /* ── CONTACT STRIP ── */
-  .contact-strip {
-    background: var(--white);
-    border-top: 1px solid var(--border-dark);
-    border-bottom: 1px solid var(--border-dark);
-    display: flex;
-    align-items: stretch;
-  }
-  .contact-item {
-    flex: 1;
-    padding: 40px;
-    text-align: center;
-    border-right: 1px solid var(--border-dark);
-  }
-  .contact-item:last-child { border-right: none; }
-  .contact-label { font-size: 9px; letter-spacing: 0.3em; font-weight: 600; color: var(--gold); text-transform: uppercase; margin-bottom: 12px; display: block; }
-  .contact-value { font-family: 'Libre Baskerville', serif; font-size: 18px; color: var(--navy); margin-bottom: 14px; }
-  .contact-link { font-size: 10px; letter-spacing: 0.2em; font-weight: 600; color: var(--gold); text-decoration: none; text-transform: uppercase; }
-  .contact-link:hover { text-decoration: underline; }
+  .address-btn { font-size: 10px; letter-spacing: 0.25em; font-weight: 600; color: var(--gold); text-decoration: none; text-transform: uppercase; display: inline-flex; align-items: center; gap: 12px; border: 1px solid var(--gold); padding: 12px 24px; transition: background 0.3s, color 0.3s; }
+  .address-btn:hover { background: var(--gold); color: var(--navy); }
 
   /* ── GUARANTEE ── */
   .guarantee { background: var(--white); text-align: center; padding: 60px 40px; border-top: 1px solid var(--border-dark); border-bottom: 1px solid var(--border-dark); }
@@ -344,70 +154,33 @@
   .footer-col-link { font-size: 10px; letter-spacing: 0.22em; font-weight: 600; color: var(--gold); text-decoration: none; text-transform: uppercase; display: inline-flex; align-items: center; gap: 10px; transition: gap 0.2s; }
   .footer-col-link::after { content: '→'; font-size: 13px; }
   .footer-col-link:hover { gap: 14px; }
-  .footer-col-link + .footer-col-link { display: block; margin-top: 10px; }
   .footer-social { display: flex; justify-content: center; gap: 24px; margin-bottom: 28px; }
-  .footer-social a { color: var(--gold); text-decoration: none; opacity: 0.8; transition: opacity 0.2s; }
+  .footer-social a { color: var(--gold); opacity: 0.8; transition: opacity 0.2s; }
   .footer-social a:hover { opacity: 1; }
   .footer-bottom { background: var(--navy); padding: 16px 40px; display: flex; align-items: center; justify-content: center; gap: 32px; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.06); }
   .footer-bottom a { font-size: 9px; letter-spacing: 0.18em; color: rgba(255,255,255,0.4); text-decoration: underline; text-underline-offset: 3px; text-transform: uppercase; transition: color 0.2s; }
   .footer-bottom a:hover { color: var(--white); }
   .footer-bottom .copyright { font-size: 9px; letter-spacing: 0.12em; color: rgba(255,255,255,0.3); text-transform: uppercase; width: 100%; text-align: center; margin-top: 8px; }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 900px) {
-    .header-top { flex-wrap: wrap; padding: 12px 20px; }
-    .nav-inner { flex-direction: column; padding: 0 20px; }
-    .nav-menu { width: 100%; border-top: 1px solid rgba(255,255,255,0.08); flex-wrap: wrap; justify-content: center; }
-    .nav-item > a { padding: 10px 14px; font-size: 10px; }
-    .split { flex-direction: column; height: auto; }
-    .split.reverse { flex-direction: column; }
-    .split-img { height: 280px; flex: none; }
-    .split-text { padding: 40px 30px; }
-    .full-img { height: 300px; }
-    .three-cols { grid-template-columns: 1fr; }
-    .col-item { border-right: none; border-bottom: 1px solid var(--border-dark); }
-    .address-block { flex-direction: column; }
-    .address-map { min-height: 240px; }
-    .address-text { padding: 40px 30px; }
-    .contact-strip { flex-direction: column; }
-    .contact-item { border-right: none; border-bottom: 1px solid var(--border-dark); }
-    .footer-cols { grid-template-columns: 1fr; }
-    .footer-nav { gap: 20px; }
-    .footer-bottom { padding: 14px 20px; }
-  }
-  @media (max-width: 540px) {
-    .page-hero { height: 55vh; min-height: 340px; }
-    .page-hero-title { font-size: 36px; }
-    .intro { padding: 50px 20px; }
-    .split-text { padding: 30px 20px; }
-    .address-text { padding: 30px 20px; }
-    .header-top-right { display: none; }
-  }
 </style>
 </head>
 <body>
 
-<!-- HEADER TOP -->
+<!-- HEADER -->
 <div class="header-top">
   <div class="header-top-left">
     <a href="index.html" style="display:flex;align-items:center;gap:16px;text-decoration:none;">
-      <img src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/KCWarrant%20WHite.png"
-        alt="Royal Warrant"
-        style="height:80px;width:auto;filter:brightness(0) saturate(100%);">
-      <img src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/SG%20Logo%20Navy.png"
-        alt="Stanley Gibbons"
-        style="height:68px;width:auto;border-left:1px solid var(--border-dark);padding-left:20px;mix-blend-mode:multiply;"
-        onerror="this.style.display='none'">
+      <img src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/KCWarrant%20WHite.png" alt="Royal Warrant" style="height:80px;width:auto;filter:brightness(0) saturate(100%);">
+      <img src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/SG%20Logo%20Navy.png" alt="Stanley Gibbons" style="height:68px;width:auto;border-left:1px solid var(--border-dark);padding-left:20px;mix-blend-mode:multiply;" onerror="this.style.display='none'">
     </a>
   </div>
   <div class="header-top-center">
     <span class="wordmark">Singapore</span>
     <span class="tagline">Asia Pacific</span>
   </div>
-  <div class="header-top-right">399 Strand, WC2R 0LP</div>
+  <div class="header-top-right">Parkview Square, 600 North Bridge Rd</div>
 </div>
 
-<!-- NAV STRIP -->
+<!-- NAV -->
 <nav class="nav-strip">
   <div class="nav-inner">
     <div class="nav-side">1856 &nbsp;|&nbsp; 2026</div>
@@ -448,164 +221,166 @@
   </div>
 </nav>
 
-<!-- PAGE HERO -->
-<!-- PAGE HERO -->
-<section style="background:var(--navy); padding: 60px 80px; display:flex; align-items:center; justify-content:center; gap:0; border-bottom: 1px solid var(--border-gold);">
-  <div style="flex:1; border: 8px solid var(--white); border-right: 4px solid var(--white); overflow:hidden; max-height:520px;">
-    <img src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/singapore-hero.jfif"
-      alt="Parkview Square exterior"
-      style="width:100%; height:520px; object-fit:cover; object-position:center; display:block;">
-  </div>
-  <div style="flex:1; border: 8px solid var(--white); border-left: 4px solid var(--white); overflow:hidden; max-height:520px;">
-    <img src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/images__4_.jfif"
-      alt="Atlas Bar interior"
-      style="width:100%; height:520px; object-fit:cover; object-position:center; display:block;">
-  </div>
-</section>
-
-<!-- INTRO -->
-<section class="intro">
-  <span class="intro-label" style="color:var(--gold);">Coming Soon</span>
-  <h2 class="intro-title">Parkview Square, Singapore</h2>
-  <p style="font-size:11px;letter-spacing:0.15em;color:rgba(26,26,46,0.45);margin-bottom:20px;">600 North Bridge Rd, 188778</p>
-  <p class="intro-body">
-    For 170 years, Stanley Gibbons has been the world's most trusted name in philately.
-    Now, we are proud to bring that expertise to Asia Pacific with the opening of our
-    new Singapore office — a landmark moment for collectors across the region.
-    Same standard. Same specialists. A new home.
-  </p>
-</section>
-
-<!-- FRAMED IMAGE PAIR -->
-<div class="image-pair">
-  <div class="image-pair-frame">
+<!-- HERO: Two framed images with text overlay -->
+<div class="hero">
+  <div class="hero-img hero-frame-left">
     <img src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/singapore-hero.jfif" alt="Parkview Square exterior">
-    <span class="image-pair-caption">Parkview Square</span>
   </div>
-  <div class="image-pair-frame">
-    <img src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/images__4_.jfif" alt="Parkview Square interior">
-    <span class="image-pair-caption">Atlas Bar — Parkview Square</span>
+  <div class="hero-img hero-frame-right">
+    <img src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/images__4_.jfif" alt="Atlas Bar interior">
+  </div>
+  <div class="hero-overlay">
+    <span class="hero-label">Coming Soon</span>
+    <h1 class="hero-title">Parkview Square</h1>
+    <p class="hero-sub">600 North Bridge Rd, Singapore 188778</p>
   </div>
 </div>
 
-<!-- SPLIT: Office -->
+<!-- ══════════════════════════════════════════
+     VALUATIONS
+════════════════════════════════════════════ -->
 <div class="split">
   <div class="split-img">
-    <div class="split-img-placeholder">
-      <span>🖼</span>
-      Image Here
-    </div>
+    <div class="split-img-placeholder"><span>🖼</span>Image Here</div>
   </div>
   <div class="split-text">
-    <span class="split-label">The Office</span>
-    <h2 class="split-title">A World-Class Home for Collectors</h2>
-    <p class="split-body">
-      Located in the prestigious Parkview Square, our Singapore office brings the full
-      breadth of Stanley Gibbons expertise to Asia Pacific. From rare stamps and coins
-      to expert valuations and auction services — everything you'd expect from the
-      world's oldest philatelic company, right here in Singapore.
-    </p>
-    <a class="split-link" href="https://sgbaldwins.com/about/locations/location-strand" target="_blank" rel="noopener">Learn More About Us</a>
+    <span class="section-label">Expert Valuations</span>
+    <h2 class="section-title">What Is Your Collection Worth?</h2>
+    <p class="section-body">Our Singapore specialists offer professional valuations for stamps, coins, banknotes and philatelic material of all kinds. Whether you hold a single rarity or an entire estate collection, we provide accurate, honest assessments backed by 170 years of expertise.</p>
+    <a class="section-link" href="#">Book a Valuation</a>
   </div>
 </div>
 
-<!-- SPLIT: Team (reversed) -->
-<div class="split reverse">
+<!-- ══════════════════════════════════════════
+     BUY / SELL / CONSIGN
+════════════════════════════════════════════ -->
+<div class="split reverse" style="background:var(--eggshell);">
   <div class="split-img">
-    <div class="split-img-placeholder">
-      <span>🖼</span>
-      Image Here
-    </div>
+    <div class="split-img-placeholder"><span>🖼</span>Image Here</div>
   </div>
   <div class="split-text">
-    <span class="split-label">Our Team</span>
-    <h2 class="split-title">Expert Specialists, On Your Doorstep</h2>
-    <p class="split-body">
-      Our Singapore team brings decades of philatelic expertise to the Asia Pacific region.
-      Whether you're an experienced collector or just starting your journey, our specialists
-      are here to guide, advise and help you find exactly what you're looking for.
-    </p>
-    <a class="split-link" href="https://sgbaldwins.com/about/locations/location-strand" target="_blank" rel="noopener">Meet the Team</a>
+    <span class="section-label">Buy · Sell · Consign</span>
+    <h2 class="section-title">The World's Finest Collectables, Here in Singapore</h2>
+    <p class="section-body">Browse and acquire rare stamps, coins and banknotes through our Singapore office, or consign your items to our specialist team for private sale or auction. We handle everything from initial assessment to final settlement.</p>
+    <a class="section-link" href="#">Enquire Now</a>
   </div>
 </div>
 
-<!-- FULL WIDTH IMAGE -->
-<div class="full-img">
-  <div class="full-img-placeholder">
-    <span>🖼</span>
-    Full Width Image Here
+<!-- ══════════════════════════════════════════
+     FIRST LIVE AUCTION
+════════════════════════════════════════════ -->
+<div class="navy-band">
+  <div style="max-width:860px; margin: 0 auto; text-align:center;">
+    <span class="section-label">Stanley Gibbons &amp; Baldwin's</span>
+    <h2 class="section-title" style="color:var(--white);">Our First Singapore Auction</h2>
+    <p class="section-body" style="color:rgba(255,255,255,0.6); max-width:600px; margin: 0 auto 40px;">A landmark moment for collectors across Asia Pacific. Our inaugural Singapore sale will bring together rare stamps, coins and banknotes — an unmissable event for serious collectors in the region.</p>
+    <div style="display:flex; justify-content:center; gap:24px; flex-wrap:wrap;">
+      <a class="section-link" href="https://sgbaldwins.com/sell/how-to-sell" target="_blank" rel="noopener" style="border:1px solid var(--gold); padding:14px 28px;">How to Consign</a>
+      <a class="section-link" href="https://sgbaldwins.com/auctions/upcoming-auctions" target="_blank" rel="noopener" style="border:1px solid rgba(255,255,255,0.3); padding:14px 28px; color:rgba(255,255,255,0.7);">Register to Bid</a>
+    </div>
   </div>
 </div>
 
-<!-- THREE COLUMNS: Services -->
-<section class="three-cols">
+<!-- ══════════════════════════════════════════
+     APAC CATEGORY FOCUS
+════════════════════════════════════════════ -->
+<div style="padding: 60px 40px 0; text-align:center; border-top: 1px solid var(--border-dark);">
+  <span class="section-label">Asia Pacific Focus</span>
+  <h2 class="section-title">Our Specialist Categories</h2>
+</div>
+<div class="three-cols">
   <div class="col-item">
-    <span class="col-icon">🏷</span>
-    <h3 class="col-title">Buy & Sell</h3>
-    <p class="col-body">Access the world's finest philatelic stock. Browse, buy and sell with the confidence of 170 years of expertise behind every transaction.</p>
+    <span class="col-icon">💵</span>
+    <h3 class="col-title">Banknotes</h3>
+    <p class="col-body">Led by Jeremy Lee, our banknote specialist brings deep knowledge of Asian and world paper money. From rare colonial issues to modern rarities, we offer buying, selling and expert valuation services.</p>
+    <br><a class="section-link" href="#" style="justify-content:center;">Enquire with Jeremy</a>
   </div>
   <div class="col-item">
-    <span class="col-icon">🔍</span>
-    <h3 class="col-title">Valuations</h3>
-    <p class="col-body">Our expert team offers professional valuations for stamps, collections and philatelic material of all sizes — from single items to entire collections.</p>
+    <span class="col-icon">🪙</span>
+    <h3 class="col-title">Coins</h3>
+    <p class="col-body">Our coins team covers ancient, world and Asian coinage with a focus on the APAC region. Whether you are buying, selling or seeking a valuation, our specialists are on hand to assist.</p>
+    <br><a class="section-link" href="#" style="justify-content:center;">Enquire Now</a>
   </div>
   <div class="col-item">
-    <span class="col-icon">🎟</span>
-    <h3 class="col-title">Auctions</h3>
-    <p class="col-body">Participate in Stanley Gibbons and Baldwin's specialist auctions, with access to rare and important philatelic material from around the world.</p>
+    <span class="col-icon">✉️</span>
+    <h3 class="col-title">Stamps</h3>
+    <p class="col-body">From Commonwealth classics to rare Asian issues, our philatelic specialists bring the full depth of Stanley Gibbons expertise to the Singapore market — buying, selling and appraising collections of all sizes.</p>
+    <br><a class="section-link" href="#" style="justify-content:center;">Enquire Now</a>
   </div>
-</section>
+</div>
 
-<!-- ADDRESS BLOCK -->
+<!-- ══════════════════════════════════════════
+     STAFF CONTACTS
+════════════════════════════════════════════ -->
+<div style="padding: 60px 40px 0; text-align:center; background:var(--white); border-top: 1px solid var(--border-dark);">
+  <span class="section-label">Our Team</span>
+  <h2 class="section-title">Meet the Singapore Specialists</h2>
+</div>
+<div class="team-grid">
+  <div class="team-card">
+    <div class="team-photo"><div class="team-photo-placeholder">Photo Here</div></div>
+    <p class="team-name">Jeremy Lee</p>
+    <p class="team-role">Banknotes Specialist</p>
+    <a class="team-email" href="mailto:jeremy.lee@stanleygibbons.com">jeremy.lee@stanleygibbons.com</a>
+  </div>
+  <div class="team-card">
+    <div class="team-photo"><div class="team-photo-placeholder">Photo Here</div></div>
+    <p class="team-name">— To Be Added —</p>
+    <p class="team-role">Coins Specialist</p>
+    <a class="team-email" href="#">Contact Us</a>
+  </div>
+  <div class="team-card">
+    <div class="team-photo"><div class="team-photo-placeholder">Photo Here</div></div>
+    <p class="team-name">— To Be Added —</p>
+    <p class="team-role">Stamps Specialist</p>
+    <a class="team-email" href="#">Contact Us</a>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     CAREERS
+════════════════════════════════════════════ -->
+<div class="split" style="border-top: 1px solid var(--border-dark);">
+  <div class="split-img">
+    <div class="split-img-placeholder"><span>🖼</span>Image Here</div>
+  </div>
+  <div class="split-text">
+    <span class="section-label">Join the Team</span>
+    <h2 class="section-title">Careers in Singapore</h2>
+    <p class="section-body">We are building something exciting in Asia Pacific and we are always looking for talented, passionate people to join us. If you have a background in philately, numismatics or the art and collectables market, we would love to hear from you.</p>
+    <a class="section-link" href="#">View Opportunities</a>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     LOCATION & APPOINTMENTS
+════════════════════════════════════════════ -->
 <div class="address-block">
   <div class="address-map">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7!2d103.8577638!3d1.3002465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da19b06669ee07%3A0x557b99348cf42378!2sParkview%20Square!5e0!3m2!1sen!2ssg!4v1700000000000"
-      width="100%" height="100%" style="border:0;display:block;" allowfullscreen="" loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7!2d103.8577638!3d1.3002465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da19b06669ee07%3A0x557b99348cf42378!2sParkview%20Square!5e0!3m2!1sen!2ssg!4v1700000000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
   <div class="address-text">
-    <span class="address-label">Find Us</span>
+    <span class="address-label">Location &amp; Appointments</span>
     <h2 class="address-title">Visit Our Singapore Office</h2>
     <div class="address-detail">
       <strong>Address</strong>
       Parkview Square<br>
       600 North Bridge Road<br>
       Singapore 188778
+      <strong>Appointments</strong>
+      Visits are by appointment. Please contact us to arrange a convenient time for valuations, viewings or consultations.
       <strong>Opening Hours</strong>
       Coming Soon
-      <strong>Enquiries</strong>
-      Contact our London team in the meantime
     </div>
-    <a class="address-link" href="https://maps.google.com/?q=Parkview+Square+600+North+Bridge+Road+Singapore" target="_blank" rel="noopener">Get Directions</a>
-  </div>
-</div>
-
-<!-- CONTACT STRIP -->
-<div class="contact-strip">
-  <div class="contact-item">
-    <span class="contact-label">Phone</span>
-    <p class="contact-value">+44 1425 472 363</p>
-    <a class="contact-link" href="tel:+441425472363">Call Us</a>
-  </div>
-  <div class="contact-item">
-    <span class="contact-label">Email</span>
-    <p class="contact-value">shop@sgbaldwins.com</p>
-    <a class="contact-link" href="mailto:shop@sgbaldwins.com">Email Us</a>
-  </div>
-  <div class="contact-item">
-    <span class="contact-label">Customer Support</span>
-    <p class="contact-value">08:30 am – 5:00 pm (Mon–Fri)</p>
-    <a class="contact-link" href="https://shop.stanleygibbons.com/pages/faq" target="_blank" rel="noopener">Visit FAQs</a>
+    <a class="address-btn" href="https://www.google.com/maps/place/Parkview+Square/@1.3000991,103.8483694,14.75z" target="_blank" rel="noopener">Get Directions</a>
+    &nbsp;&nbsp;
+    <a class="address-btn" href="#" style="margin-top:12px;">Book Appointment</a>
   </div>
 </div>
 
 <!-- GUARANTEE -->
 <div class="guarantee">
-  <img class="guarantee-crown"
-    src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/crown__1_.png"
-    alt="Crown">
+  <img class="guarantee-crown" src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/crown__1_.png" alt="Crown">
   <span class="guarantee-label">Guarantee</span>
   <p class="guarantee-text">All Stanley Gibbons stamps come with a lifetime guarantee of authenticity</p>
 </div>
@@ -618,7 +393,7 @@
       <a href="https://sgbaldwins.com/auctions/upcoming-auctions" target="_blank" rel="noopener">Auctions</a>
       <a href="https://sgbaldwins.com/single_shop" target="_blank" rel="noopener">Publishing</a>
       <a href="https://shop.stanleygibbons.com/pages/faq" target="_blank" rel="noopener">FAQs</a>
-      <a href="https://shop.stanleygibbons.com/pages/faq#:~:text=To%20access%20your%20purchases%2C%20please,URL%20link%20to%20access%20them.&text=If%20you%20already%20use%20the,to%20access%20your%20existing%20purchases." target="_blank" rel="noopener">Customer Support</a>
+      <a href="https://shop.stanleygibbons.com/pages/faq" target="_blank" rel="noopener">Customer Support</a>
       <a href="singapore.html">Singapore</a>
     </div>
     <div class="footer-cols">
@@ -635,7 +410,7 @@
       <div>
         <h3 class="footer-col-title">Customer Support</h3>
         <p class="footer-col-body">08:30 am – 5:00 pm (Mon–Fri)<br><br>+44 1425 472 363</p>
-        <a class="footer-col-link" href="https://shop.stanleygibbons.com/pages/faq#:~:text=To%20access%20your%20purchases%2C%20please,URL%20link%20to%20access%20them.&text=If%20you%20already%20use%20the,to%20access%20your%20existing%20purchases." target="_blank" rel="noopener">Contact Us</a>
+        <a class="footer-col-link" href="https://shop.stanleygibbons.com/pages/faq" target="_blank" rel="noopener">Contact Us</a>
       </div>
       <div>
         <h3 class="footer-col-title">Gibbons Stamp Monthly</h3>
@@ -654,7 +429,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <a href="https://shop.stanleygibbons.com/policies/terms-of-service" target="_blank" rel="noopener">Terms & Conditions</a>
+    <a href="https://shop.stanleygibbons.com/policies/terms-of-service" target="_blank" rel="noopener">Terms &amp; Conditions</a>
     <a href="https://shop.stanleygibbons.com/policies/privacy-policy" target="_blank" rel="noopener">Privacy</a>
     <a href="https://shop.stanleygibbons.com/policies/privacy-policy" target="_blank" rel="noopener">Cookies</a>
     <p class="copyright">© 2026 Stanley Gibbons. All Rights Reserved.</p>
