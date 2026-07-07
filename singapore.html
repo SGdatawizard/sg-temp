@@ -106,7 +106,7 @@
   .three-cols { display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 1px solid var(--border-dark); }
   .col-item { padding: 50px 40px; text-align: center; border-right: 1px solid var(--border-dark); border-bottom: 1px solid var(--border-dark); }
   .col-item:last-child { border-right: none; }
-  .col-icon { font-size: 28px; margin-bottom: 14px; display: block; }
+  .col-icon { display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; width: 64px; height: 64px; border: 1.5px solid var(--border-dark); border-radius: 50%; }
   .col-title { font-family: 'Libre Baskerville', serif; font-size: 20px; font-weight: 400; color: var(--navy); margin-bottom: 10px; }
   .col-body { font-family: 'Open Sans', sans-serif; font-size: 13px; line-height: 1.8; color: rgba(26,26,46,0.6); font-weight: 300; }
 
@@ -237,6 +237,55 @@
 </div>
 
 <!-- ══════════════════════════════════════════
+     APAC CATEGORY FOCUS
+════════════════════════════════════════════ -->
+<div style="padding: 60px 40px 0; text-align:center; border-top: 1px solid var(--border-dark);">
+  <span class="section-label">Asia Pacific Focus</span>
+  <h2 class="section-title">Our Specialist Categories</h2>
+</div>
+<div class="three-cols">
+  <div class="col-item">
+    <!-- Banknote / note icon -->
+    <span class="col-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="1" y="4" width="22" height="16" rx="2"/>
+        <circle cx="12" cy="12" r="3"/>
+        <path d="M1 9h2M21 9h2M1 15h2M21 15h2"/>
+      </svg>
+    </span>
+    <h3 class="col-title">Banknotes</h3>
+    <p class="col-body">Led by Jeremy Lee, our banknote specialist brings deep knowledge of Asian and world paper money. From rare colonial issues to modern rarities, we offer buying, selling and expert valuation services.</p>
+    <br><a class="section-link" href="#" style="justify-content:center;">Enquire with Jeremy</a>
+  </div>
+  <div class="col-item">
+    <!-- Coin icon -->
+    <span class="col-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <circle cx="12" cy="12" r="5"/>
+        <path d="M12 2v2M12 20v2M2 12h2M20 12h2"/>
+      </svg>
+    </span>
+    <h3 class="col-title">Coins</h3>
+    <p class="col-body">Our coins team covers ancient, world and Asian coinage with a focus on the APAC region. Whether you are buying, selling or seeking a valuation, our specialists are on hand to assist.</p>
+    <br><a class="section-link" href="#" style="justify-content:center;">Enquire Now</a>
+  </div>
+  <div class="col-item">
+    <!-- Stamp / envelope icon -->
+    <span class="col-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="4" width="20" height="16" rx="2"/>
+        <path d="M2 4l10 9 10-9"/>
+        <path d="M2 20l6-6M22 20l-6-6"/>
+      </svg>
+    </span>
+    <h3 class="col-title">Stamps</h3>
+    <p class="col-body">From Commonwealth classics to rare Asian issues, our philatelic specialists bring the full depth of Stanley Gibbons expertise to the Singapore market — buying, selling and appraising collections of all sizes.</p>
+    <br><a class="section-link" href="#" style="justify-content:center;">Enquire Now</a>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
      VALUATIONS
 ════════════════════════════════════════════ -->
 <div class="split">
@@ -278,34 +327,6 @@
       <a class="section-link" href="https://sgbaldwins.com/sell/how-to-sell" target="_blank" rel="noopener" style="border:1px solid var(--gold); padding:14px 28px;">How to Consign</a>
       <a class="section-link" href="https://sgbaldwins.com/auctions/upcoming-auctions" target="_blank" rel="noopener" style="border:1px solid rgba(255,255,255,0.3); padding:14px 28px; color:rgba(255,255,255,0.7);">Register to Bid</a>
     </div>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════════
-     APAC CATEGORY FOCUS
-════════════════════════════════════════════ -->
-<div style="padding: 60px 40px 0; text-align:center; border-top: 1px solid var(--border-dark);">
-  <span class="section-label">Asia Pacific Focus</span>
-  <h2 class="section-title">Our Specialist Categories</h2>
-</div>
-<div class="three-cols">
-  <div class="col-item">
-    <span class="col-icon">💵</span>
-    <h3 class="col-title">Banknotes</h3>
-    <p class="col-body">Led by Jeremy Lee, our banknote specialist brings deep knowledge of Asian and world paper money. From rare colonial issues to modern rarities, we offer buying, selling and expert valuation services.</p>
-    <br><a class="section-link" href="#" style="justify-content:center;">Enquire with Jeremy</a>
-  </div>
-  <div class="col-item">
-    <span class="col-icon">🪙</span>
-    <h3 class="col-title">Coins</h3>
-    <p class="col-body">Our coins team covers ancient, world and Asian coinage with a focus on the APAC region. Whether you are buying, selling or seeking a valuation, our specialists are on hand to assist.</p>
-    <br><a class="section-link" href="#" style="justify-content:center;">Enquire Now</a>
-  </div>
-  <div class="col-item">
-    <span class="col-icon">✉️</span>
-    <h3 class="col-title">Stamps</h3>
-    <p class="col-body">From Commonwealth classics to rare Asian issues, our philatelic specialists bring the full depth of Stanley Gibbons expertise to the Singapore market — buying, selling and appraising collections of all sizes.</p>
-    <br><a class="section-link" href="#" style="justify-content:center;">Enquire Now</a>
   </div>
 </div>
 
