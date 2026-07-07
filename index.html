@@ -338,6 +338,18 @@
   .editorial-link::after { content: '→'; font-size: 14px; }
   .editorial-link:hover { gap: 18px; }
 
+  /* ── GUARANTEE ── */
+  .guarantee {
+    background: var(--white);
+    text-align: center;
+    padding: 60px 40px;
+    border-top: 1px solid var(--border-dark);
+    border-bottom: 1px solid var(--border-dark);
+  }
+  .guarantee-crown { height: 90px; width: auto; margin: 0 auto 16px; display: block; }
+  .guarantee-label { display: block; font-size: 10px; letter-spacing: 0.35em; font-weight: 600; color: rgba(26,26,46,0.4); text-transform: uppercase; margin-bottom: 20px; }
+  .guarantee-text { font-family: 'Libre Baskerville', serif; font-size: clamp(16px, 1.8vw, 24px); font-weight: 400; color: var(--navy); max-width: 600px; margin: 0 auto; line-height: 1.5; }
+
   .footer-main {
     background: var(--navy-mid);
     padding: 60px 40px 40px;
@@ -656,6 +668,13 @@
   </div>
 </div>
 
+<!-- GUARANTEE -->
+<div class="guarantee">
+  <img class="guarantee-crown" src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/crown__1_.png" alt="Crown">
+  <span class="guarantee-label">Guarantee</span>
+  <p class="guarantee-text">All Stanley Gibbons stamps come with a lifetime guarantee of authenticity</p>
+</div>
+
 <!-- FOOTER MAIN -->
 <footer>
   <div class="footer-main">
@@ -690,7 +709,7 @@
       </div>
     </div>
     <div class="footer-social">
-      <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+      <a href="https://www.instagram.com/stanleygibbons/?hl=en-gb" target="_blank" rel="noopener" aria-label="Instagram">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
           <circle cx="12" cy="12" r="4"/>
