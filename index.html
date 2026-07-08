@@ -4,55 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Stanley Gibbons — The Home of Collectables</title>
+<meta name="description" content="Stanley Gibbons — the world's leading philatelic house since 1856. Explore live auctions, the online shop, publications, and our new Singapore Asia Pacific office.">
+<link rel="canonical" href="https://www.stanleygibbons.com/"><!-- TODO: update to the final production domain before launch -->
+
+<!-- Open Graph / social sharing -->
+<meta property="og:title" content="Stanley Gibbons — The Home of Collectables">
+<meta property="og:description" content="170 years of philatelic expertise. Auctions, retail, publications and our new Asia Pacific office in Singapore.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/auctioneer.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230e1a2e'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-size='50' fill='%23c9a84c' text-anchor='middle'%3ESG%3C/text%3E%3C/svg%3E">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://nriwancqvsrufldjvbnw.supabase.co">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
 <style>
-  :root {
-    --navy: #0e1a2e;
-    --navy-mid: #152340;
-    --navy-light: #1d2f4f;
-    --gold: #c9a84c;
-    --white: #ffffff;
-    --off-white: #f0eeeb;
-    --text-muted: rgba(255,255,255,0.55);
-    --border-dark: rgba(26,26,46,0.12);
-    --border-gold: rgba(201,168,76,0.25);
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { height: auto; }
-  body { font-family: 'Montserrat', sans-serif; background: var(--navy); color: var(--white); }
-
-  /* ── HEADER TOP ── */
-  .header-top {
-    background: var(--white);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 14px 40px;
-    border-bottom: 1px solid var(--border-dark);
-    gap: 20px;
-  }
-  .header-top-left {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    flex-shrink: 0;
-    min-width: 180px;
-  }
-  .header-top-left .warrant {
-    height: 80px;
-    width: auto;
-    filter: brightness(0) saturate(100%) invert(13%) sepia(37%) saturate(800%) hue-rotate(185deg) brightness(85%);
-  }
-  .header-top-left .sg-logo {
-    height: 68px;
-    width: auto;
-    border-left: 1px solid var(--border-dark);
-    padding-left: 20px;
-  }
-  .header-top-center { flex: 1; text-align: center; }
+  /* ── PAGE-SPECIFIC: HOME BANNER TEXT ── */
   .header-top-center .banner-headline {
     font-family: 'Libre Baskerville', serif;
     font-size: clamp(16px, 1.8vw, 26px);
@@ -72,136 +43,15 @@
     font-weight: 400;
   }
   .header-top-center .banner-body strong { color: var(--navy); font-weight: 600; }
-  .header-top-right {
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    color: var(--navy-mid);
-    font-weight: 500;
-    flex-shrink: 0;
-    text-align: right;
-    min-width: 180px;
-  }
-
-  /* ── NAV STRIP ── */
-  .nav-strip {
-    background: var(--navy-mid);
-    border-bottom: 1px solid var(--border-gold);
-    position: sticky;
-    top: 0;
-    z-index: 200;
-  }
-  .nav-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 40px;
-  }
-  .nav-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 40px;
-  }
-  .nav-side {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    color: var(--gold);
-    padding: 14px 0;
-    white-space: nowrap;
-    flex-shrink: 0;
-    width: 160px;
-  }
-  .nav-side:last-child { text-align: right; }
-
-  .nav-menu {
-    display: flex;
-    align-items: center;
-    list-style: none;
-    gap: 0;
-    flex: 1;
-    justify-content: center;
-  }
-  .nav-item {
-    position: relative;
-    display: flex;
-    align-items: center;
-  }
-  .nav-item + .nav-item::before {
-    content: '';
-    width: 2px;
-    height: 22px;
-    background: var(--gold);
-    opacity: 1;
-    flex-shrink: 0;
-  }
-  .nav-item > a {
-    display: block;
-    padding: 18px 30px;
-    font-size: 13px;
-    letter-spacing: 0.18em;
-    font-weight: 600;
-    color: var(--white);
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: color 0.2s ease;
-    white-space: nowrap;
-    text-align: center;
-  }
-  .nav-item > a:hover,
-  .nav-item:hover > a { color: var(--gold); }
-  .nav-item > a .nav-arrow {
-    font-size: 9px;
-    margin-left: 7px;
-    opacity: 0.6;
-    transition: transform 0.2s ease;
-    display: inline-block;
-  }
-  .nav-item:hover > a .nav-arrow { transform: rotate(180deg); }
-
-  /* Dropdown */
-  .nav-dropdown {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%) translateY(6px);
-    background: var(--navy);
-    border: 1px solid var(--border-gold);
-    border-top: 2px solid var(--gold);
-    min-width: 200px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-    z-index: 300;
-  }
-  .nav-item:hover .nav-dropdown {
-    opacity: 1;
-    pointer-events: all;
-    transform: translateX(-50%) translateY(0);
-  }
-  .nav-dropdown a {
-    display: block;
-    padding: 12px 24px;
-    font-size: 13px;
-    letter-spacing: 0.18em;
-    color: var(--white);
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: 600;
-    border-bottom: 1px solid rgba(201,168,76,0.15);
-    transition: color 0.2s, background 0.2s;
-    text-align: left;
-  }
-  .nav-dropdown a:last-child { border-bottom: none; }
-  .nav-dropdown a:hover { color: var(--gold); background: rgba(255,255,255,0.03); }
 
   /* ── CAROUSEL ── */
   .carousel {
     position: relative;
     height: 65vh;
+    height: 65dvh;
     min-height: 420px;
     overflow: hidden;
+    background: var(--navy);
   }
   .carousel-slide {
     position: absolute;
@@ -220,7 +70,6 @@
   }
   .carousel-slide.active { opacity: 1; }
 
-  /* Slide CTA content */
   .slide-content {
     position: absolute;
     top: 50%;
@@ -273,6 +122,7 @@
     left: 50%;
     transform: translateX(-50%);
     display: flex;
+    align-items: center;
     gap: 8px;
     z-index: 3;
   }
@@ -283,8 +133,30 @@
     cursor: pointer;
     transition: background 0.3s ease;
     border: none; padding: 0;
+    position: relative;
+  }
+  /* Enlarge the tap target beyond the visible dot without changing its look */
+  .carousel-dot::before {
+    content: '';
+    position: absolute;
+    inset: -13px;
   }
   .carousel-dot.active { background: var(--gold); }
+  .carousel-pause {
+    margin-left: 10px;
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.4);
+    background: rgba(14,26,46,0.4);
+    color: var(--white);
+    font-size: 9px;
+    line-height: 1;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .carousel-pause:hover, .carousel-pause:focus-visible { border-color: var(--gold); color: var(--gold); }
 
   /* ── PANELS ── */
   .panels {
@@ -304,9 +176,9 @@
     outline: 3px solid transparent;
     transition: outline 0.3s ease, box-shadow 0.3s ease;
   }
-  .panel:hover { outline: 3px solid rgba(255,255,255,0.75); box-shadow: inset 0 0 60px rgba(201,168,76,0.08); z-index: 1; }
+  .panel:hover, .panel:focus-visible { outline: 3px solid rgba(255,255,255,0.75); box-shadow: inset 0 0 60px rgba(201,168,76,0.08); z-index: 1; }
   .panel-img { width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.35) saturate(0.5); transition: filter 0.4s ease; }
-  .panel:hover .panel-img { filter: brightness(0.48) saturate(0.65); }
+  .panel:hover .panel-img, .panel:focus-visible .panel-img { filter: brightness(0.48) saturate(0.65); }
   .panel-content { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px; text-align: center; }
   .panel-tag { font-size: 11px; letter-spacing: 0.3em; font-weight: 600; color: rgba(255,255,255,0.55); text-transform: uppercase; margin-bottom: 16px; transition: color 0.3s ease, letter-spacing 0.3s ease; }
   .panel:hover .panel-tag { color: rgba(255,255,255,0.9); letter-spacing: 0.35em; }
@@ -338,179 +210,45 @@
   .editorial-link::after { content: '→'; font-size: 14px; }
   .editorial-link:hover { gap: 18px; }
 
-  /* ── GUARANTEE ── */
-  .guarantee {
-    background: var(--white);
-    text-align: center;
-    padding: 60px 40px;
-    border-top: 1px solid var(--border-dark);
-    border-bottom: 1px solid var(--border-dark);
-  }
-  .guarantee-crown { height: 90px; width: auto; margin: 0 auto 16px; display: block; }
-  .guarantee-label { display: block; font-size: 10px; letter-spacing: 0.35em; font-weight: 600; color: rgba(26,26,46,0.4); text-transform: uppercase; margin-bottom: 20px; }
-  .guarantee-text { font-family: 'Libre Baskerville', serif; font-size: clamp(16px, 1.8vw, 24px); font-weight: 400; color: var(--navy); max-width: 600px; margin: 0 auto; line-height: 1.5; }
-
-  .footer-main {
-    background: var(--navy-mid);
-    padding: 60px 40px 40px;
-    border-top: 1px solid var(--border-gold);
-  }
-  .footer-nav {
-    display: flex;
-    justify-content: center;
-    gap: 48px;
-    padding-bottom: 32px;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    margin-bottom: 48px;
-    flex-wrap: wrap;
-  }
-  .footer-nav a {
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    font-weight: 700;
-    color: var(--white);
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
-  .footer-nav a:hover { color: var(--gold); }
-
-  .footer-cols {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 40px;
-    max-width: 1000px;
-    margin: 0 auto 48px;
-    text-align: center;
-  }
-  .footer-col-title {
-    font-family: 'Libre Baskerville', serif;
-    font-size: 22px;
-    font-weight: 400;
-    color: var(--white);
-    margin-bottom: 16px;
-  }
-  .footer-col-body {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 12px;
-    line-height: 1.8;
-    color: rgba(255,255,255,0.72);
-    font-weight: 300;
-    margin-bottom: 20px;
-  }
-  .footer-col-link {
-    font-size: 10px;
-    letter-spacing: 0.22em;
-    font-weight: 600;
-    color: var(--gold);
-    text-decoration: none;
-    text-transform: uppercase;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    transition: gap 0.2s;
-  }
-  .footer-col-link::after { content: '→'; font-size: 13px; }
-  .footer-col-link:hover { gap: 14px; }
-  .footer-col-link + .footer-col-link { display: block; margin-top: 10px; }
-
-  .footer-social {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    margin-bottom: 28px;
-  }
-  .footer-social a {
-    color: var(--gold);
-    text-decoration: none;
-    font-size: 18px;
-    opacity: 0.8;
-    transition: opacity 0.2s;
-  }
-  .footer-social a:hover { opacity: 1; }
-
-  .footer-bottom {
-    background: var(--navy);
-    padding: 16px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 32px;
-    flex-wrap: wrap;
-    border-top: 1px solid rgba(255,255,255,0.06);
-  }
-  .footer-bottom a {
-    font-size: 9px;
-    letter-spacing: 0.18em;
-    color: rgba(255,255,255,0.4);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
-  .footer-bottom a:hover { color: var(--white); }
-  .footer-bottom .copyright {
-    font-size: 9px;
-    letter-spacing: 0.12em;
-    color: rgba(255,255,255,0.3);
-    text-transform: uppercase;
-    width: 100%;
-    text-align: center;
-    margin-top: 8px;
-  }
-
-  /* ── RESPONSIVE ── */
+  /* ── PAGE-SPECIFIC RESPONSIVE ── */
   @media (max-width: 900px) {
-    .header-top { padding: 12px 20px; flex-wrap: wrap; }
     .header-top-center { order: 3; flex-basis: 100%; padding-top: 8px; }
-    .nav-inner { flex-direction: column; gap: 0; padding: 0 20px; }
-    .nav-ann { padding: 10px 0; }
-    .nav-menu { width: 100%; justify-content: space-around; border-top: 1px solid rgba(255,255,255,0.08); }
-    .nav-item > a { padding: 10px 10px; font-size: 9px; }
-    .carousel { height: 50vh; min-height: 300px; }
+    .carousel { height: 50vh; height: 50dvh; min-height: 300px; }
     .panels { flex-direction: column; height: auto; }
     .panel { height: 280px; flex: none; }
     .editorial { flex-direction: column; min-height: auto; }
     .editorial.reverse { flex-direction: column; }
     .editorial-img { height: 280px; flex: none; }
     .editorial-text { padding: 40px 30px; }
-    .footer-cols { grid-template-columns: 1fr; gap: 40px; }
-    .footer-nav { gap: 20px; }
   }
   @media (max-width: 540px) {
-    .header-top { padding: 10px 14px; }
-    .header-top-right { display: none; }
     .header-top-center .banner-headline { white-space: normal; font-size: 16px; }
-    .nav-menu { flex-wrap: wrap; }
-    .nav-item > a { font-size: 8px; padding: 8px 8px; }
-    .carousel { height: 55vh; min-height: 280px; }
+    .carousel { height: 55vh; height: 55dvh; min-height: 280px; }
     .panel { height: 240px; }
     .editorial-img { height: 220px; }
     .editorial-text { padding: 32px 20px; }
-    .footer-main { padding: 40px 20px 30px; }
-    .footer-bottom { padding: 14px 20px; }
   }
 </style>
 </head>
 <body>
 
+<a class="skip-link" href="#main">Skip to main content</a>
+
 <!-- HEADER TOP -->
 <div class="header-top">
   <div class="header-top-left">
-    <a href="index.html" style="display:flex;align-items:center;gap:16px;text-decoration:none;">
+    <a href="index.html">
       <img class="warrant"
         src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/KCWarrant%20WHite.png"
-        alt="Royal Warrant"
-        style="height:80px;width:auto;filter:brightness(0) saturate(100%);">
+        alt="Royal Warrant" width="80" height="80">
       <img class="sg-logo"
         src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/SG%20Logo%20Navy.png"
-        alt="Stanley Gibbons"
-        style="height:68px;width:auto;border-left:1px solid var(--border-dark);padding-left:20px;mix-blend-mode:multiply;"
+        alt="Stanley Gibbons" width="68" height="68"
         onerror="this.style.display='none'">
     </a>
   </div>
   <div class="header-top-center">
-    <div class="banner-headline">We're building <em>something new.</em></div>
+    <h1 class="banner-headline">We're building <em>something new.</em></h1>
     <p class="banner-body">
       For 170 years, Stanley Gibbons has set the standard for stamp collecting. With Baldwin's
       now part of the family, we're shaping a new destination for a broader world of collecting
@@ -522,10 +260,13 @@
 </div>
 
 <!-- NAV STRIP -->
-<nav class="nav-strip">
+<nav class="nav-strip" aria-label="Primary">
   <div class="nav-inner">
     <div class="nav-side">1856 &nbsp;|&nbsp; 2026</div>
-    <ul class="nav-menu">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav-menu" aria-label="Toggle navigation menu">
+      <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span>
+    </button>
+    <ul class="nav-menu" id="primary-nav-menu">
       <li class="nav-item">
         <a href="https://shop.stanleygibbons.com/" target="_blank" rel="noopener">Online Store <span class="nav-arrow">▾</span></a>
         <div class="nav-dropdown">
@@ -563,37 +304,39 @@
   </div>
 </nav>
 
+<main id="main">
+
 <!-- CAROUSEL -->
 <div class="carousel">
-  <div class="carousel-slide active" style="background-image:url('https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/auctioneer.png')">
+  <div class="carousel-slide active" data-bg="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/auctioneer.png" style="background-image:url('https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/auctioneer.png')">
     <div class="slide-content">
       <span class="slide-label">Auctions</span>
       <span class="slide-title">The Auction House</span>
       <a class="slide-btn" href="https://sgbaldwins.com/auctions/upcoming-auctions" target="_blank" rel="noopener">View Upcoming Auctions</a>
     </div>
   </div>
-  <div class="carousel-slide" style="background-image:url('https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/online_shop.png')">
+  <div class="carousel-slide" data-bg="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/online_shop.png">
     <div class="slide-content">
       <span class="slide-label">Retail</span>
       <span class="slide-title">Online Shop</span>
       <a class="slide-btn" href="https://shop.stanleygibbons.com/" target="_blank" rel="noopener">Browse Stamps</a>
     </div>
   </div>
-  <div class="carousel-slide" style="background-image:url('https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/16.webp')">
+  <div class="carousel-slide" data-bg="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/16.webp">
     <div class="slide-content">
       <span class="slide-label">Publications</span>
-      <span class="slide-title">Physical & Digital Catalogues</span>
+      <span class="slide-title">Physical &amp; Digital Catalogues</span>
       <a class="slide-btn" href="https://sgbaldwins.com/about-us/stanley-gibbons" target="_blank" rel="noopener">View Publications</a>
     </div>
   </div>
-  <div class="carousel-slide" style="background-image:url('https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/2026_Part1_Stanley_Gibbons.webp')">
+  <div class="carousel-slide" data-bg="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/2026_Part1_Stanley_Gibbons.webp">
     <div class="slide-content">
       <span class="slide-label">New 2026 Edition</span>
-      <span class="slide-title">Commonwealth & British Empire<br>Stamps Catalogue 1840–1970</span>
+      <span class="slide-title">Commonwealth &amp; British Empire<br>Stamps Catalogue 1840–1970</span>
       <a class="slide-btn" href="https://sgbaldwins.com/about-us/stanley-gibbons" target="_blank" rel="noopener">Order Part 1 Today</a>
     </div>
   </div>
-  <div class="carousel-slide" style="background-image:url('https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/Concise_web_BANNER_2025.png')">
+  <div class="carousel-slide" data-bg="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/Concise_web_BANNER_2025.png">
     <div class="slide-content">
       <span class="slide-label">2026 Edition</span>
       <span class="slide-title">Great Britain Concise</span>
@@ -601,11 +344,12 @@
     </div>
   </div>
   <div class="carousel-dots">
-    <button class="carousel-dot active" onclick="goToSlide(0)"></button>
-    <button class="carousel-dot" onclick="goToSlide(1)"></button>
-    <button class="carousel-dot" onclick="goToSlide(2)"></button>
-    <button class="carousel-dot" onclick="goToSlide(3)"></button>
-    <button class="carousel-dot" onclick="goToSlide(4)"></button>
+    <button class="carousel-dot active" aria-label="Go to slide 1"></button>
+    <button class="carousel-dot" aria-label="Go to slide 2"></button>
+    <button class="carousel-dot" aria-label="Go to slide 3"></button>
+    <button class="carousel-dot" aria-label="Go to slide 4"></button>
+    <button class="carousel-dot" aria-label="Go to slide 5"></button>
+    <button class="carousel-pause" type="button" aria-pressed="false" aria-label="Pause slideshow">❚❚</button>
   </div>
 </div>
 
@@ -621,9 +365,9 @@
 </div>
 
 <!-- PANELS -->
-<section class="panels">
+<section class="panels" aria-label="Explore our services">
   <a class="panel" href="https://sgbaldwins.com/auctions/upcoming-auctions" target="_blank" rel="noopener">
-    <img class="panel-img" src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/5.webp" alt="Auctions">
+    <img class="panel-img" src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/5.webp" alt="Auctions" loading="lazy" decoding="async">
     <div class="panel-content">
       <span class="panel-tag">01 / Auctions</span>
       <h2 class="panel-title">The Auction House</h2>
@@ -631,7 +375,7 @@
     </div>
   </a>
   <a class="panel" href="https://sgbaldwins.com/stamps-buy-now" target="_blank" rel="noopener">
-    <img class="panel-img" src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/23abc.jpg" alt="Online Shop">
+    <img class="panel-img" src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/23abc.jpg" alt="Online Shop" loading="lazy" decoding="async">
     <div class="panel-content">
       <span class="panel-tag">02 / Retail</span>
       <h2 class="panel-title">Online Shop</h2>
@@ -639,10 +383,10 @@
     </div>
   </a>
   <a class="panel" href="https://sgbaldwins.com/about-us/stanley-gibbons" target="_blank" rel="noopener">
-    <img class="panel-img" src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/large_Mockup_Part_1_2cbdec22d8.webp" alt="Publications">
+    <img class="panel-img" src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/large_Mockup_Part_1_2cbdec22d8.webp" alt="Publications" loading="lazy" decoding="async">
     <div class="panel-content">
       <span class="panel-tag">03 / Publications</span>
-      <h2 class="panel-title">Physical & Digital Catalogues</h2>
+      <h2 class="panel-title">Physical &amp; Digital Catalogues</h2>
       <span class="panel-link">Explore</span>
     </div>
   </a>
@@ -651,7 +395,7 @@
 <!-- EDITORIAL: London -->
 <div class="editorial">
   <div class="editorial-img">
-    <img src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/SG_Old_Van1__1_.png" alt="Stanley Gibbons, The Strand">
+    <img src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/SG_Old_Van1__1_.png" alt="Stanley Gibbons, The Strand" loading="lazy" decoding="async">
   </div>
   <div class="editorial-text">
     <span class="editorial-label">London, United Kingdom</span>
@@ -664,7 +408,7 @@
 <!-- EDITORIAL: Singapore -->
 <div class="editorial reverse">
   <div class="editorial-img">
-    <img src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/images__4_.jfif" alt="Singapore Office">
+    <img src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/images__4_.jfif" alt="Singapore Office" loading="lazy" decoding="async">
   </div>
   <div class="editorial-text">
     <span class="editorial-label">Asia Pacific</span>
@@ -676,10 +420,12 @@
 
 <!-- GUARANTEE -->
 <div class="guarantee">
-  <img class="guarantee-crown" src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/crown__1_.png" alt="Crown">
+  <img class="guarantee-crown" src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/crown__1_.png" alt="Crown" loading="lazy" decoding="async">
   <span class="guarantee-label">Guarantee</span>
   <p class="guarantee-text">All Stanley Gibbons stamps come with a lifetime guarantee of authenticity</p>
 </div>
+
+</main>
 
 <!-- FOOTER MAIN -->
 <footer>
@@ -689,7 +435,7 @@
       <a href="https://sgbaldwins.com/auctions/upcoming-auctions" target="_blank" rel="noopener">Auctions</a>
       <a href="https://sgbaldwins.com/single_shop" target="_blank" rel="noopener">Publishing</a>
       <a href="https://shop.stanleygibbons.com/pages/faq" target="_blank" rel="noopener">FAQs</a>
-      <a href="https://shop.stanleygibbons.com/pages/faq#:~:text=To%20access%20your%20purchases%2C%20please,URL%20link%20to%20access%20them.&text=If%20you%20already%20use%20the,to%20access%20your%20existing%20purchases." target="_blank" rel="noopener">Customer Support</a>
+      <a href="https://shop.stanleygibbons.com/pages/faq" target="_blank" rel="noopener">Customer Support</a>
       <a href="singapore.html">Singapore</a>
     </div>
     <div class="footer-cols">
@@ -706,7 +452,7 @@
       <div>
         <h3 class="footer-col-title">Customer Support</h3>
         <p class="footer-col-body">08:30 am – 5:00 pm (Mon–Fri)<br><br>+44 1425 472 363</p>
-        <a class="footer-col-link" href="https://shop.stanleygibbons.com/pages/faq#:~:text=To%20access%20your%20purchases%2C%20please,URL%20link%20to%20access%20them.&text=If%20you%20already%20use%20the,to%20access%20your%20existing%20purchases." target="_blank" rel="noopener">Contact Us</a>
+        <a class="footer-col-link" href="https://shop.stanleygibbons.com/pages/faq" target="_blank" rel="noopener">Contact Us</a>
       </div>
       <div>
         <h3 class="footer-col-title">Gibbons Stamp Monthly</h3>
@@ -716,7 +462,7 @@
     </div>
     <div class="footer-social">
       <a href="https://www.instagram.com/stanleygibbons/?hl=en-gb" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
           <circle cx="12" cy="12" r="4"/>
           <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
@@ -725,25 +471,13 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <a href="https://shop.stanleygibbons.com/policies/terms-of-service" target="_blank" rel="noopener">Terms & Conditions</a>
+    <a href="https://shop.stanleygibbons.com/policies/terms-of-service" target="_blank" rel="noopener">Terms &amp; Conditions</a>
     <a href="https://shop.stanleygibbons.com/policies/privacy-policy" target="_blank" rel="noopener">Privacy</a>
     <a href="https://shop.stanleygibbons.com/policies/privacy-policy" target="_blank" rel="noopener">Cookies</a>
     <p class="copyright">© 2026 Stanley Gibbons. All Rights Reserved.</p>
   </div>
 </footer>
 
-<script>
-  let current = 0;
-  const slides = document.querySelectorAll('.carousel-slide');
-  const dots = document.querySelectorAll('.carousel-dot');
-  function goToSlide(n) {
-    slides[current].classList.remove('active');
-    dots[current].classList.remove('active');
-    current = n;
-    slides[current].classList.add('active');
-    dots[current].classList.add('active');
-  }
-  setInterval(() => goToSlide((current + 1) % slides.length), 6000);
-</script>
+<script src="main.js"></script>
 </body>
 </html>
