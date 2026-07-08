@@ -2,5 +2,14 @@
   "version": 2,
   "builds": [
     { "src": "*.html", "use": "@vercel/static" }
-  ]
+  ],
+  "images": {
+    "domains": ["nriwancqvsrufldjvbnw.supabase.co"],
+    "remotePatterns": [
+      { "protocol": "https", "hostname": "nriwancqvsrufldjvbnw.supabase.co" }
+    ],
+    "sizes": [160, 200, 320, 480, 640, 828, 1200, 1600, 1920, 2048],
+    "formats": ["image/avif", "image/webp"],
+    "minimumCacheTTL": 31536000
+  }
 }
