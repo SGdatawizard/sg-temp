@@ -19,7 +19,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://nriwancqvsrufldjvbnw.supabase.co">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+<!-- LCP image (hero): hinted as high-priority and discoverable immediately -->
+<link rel="preload" as="image" fetchpriority="high" href="/_vercel/image?url=https%3A%2F%2Fnriwancqvsrufldjvbnw.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fimages%2Fsingapore-hero.jfif&w=1600&q=75">
+
+<!-- Google Fonts loaded non-render-blocking: preload + swap-in, with a <noscript> fallback -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400;600&display=swap" media="print" onload="this.media='all'; this.onload=null;">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400;600&display=swap"></noscript>
 
 <style>
 /* ============================================================
@@ -583,8 +590,8 @@ img { max-width: 100%; }
 <div class="header-top">
   <div class="header-top-left">
     <a href="index.html">
-      <img class="warrant" src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/KCWarrant%20WHite.png" alt="Royal Warrant" width="80" height="80">
-      <img class="sg-logo" src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/SG%20Logo%20Navy.png" alt="Stanley Gibbons" width="68" height="68" onerror="this.style.display='none'">
+      <img class="warrant" src="/_vercel/image?url=https%3A%2F%2Fnriwancqvsrufldjvbnw.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fimages%2FKCWarrant%20WHite.png&w=160&q=75" alt="Royal Warrant" width="57" height="80">
+      <img class="sg-logo" src="/_vercel/image?url=https%3A%2F%2Fnriwancqvsrufldjvbnw.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fimages%2FSG%20Logo%20Navy.png&w=160&q=75" alt="Stanley Gibbons" onerror="this.style.display='none'">
     </a>
   </div>
   <div class="header-top-center">
@@ -644,10 +651,10 @@ img { max-width: 100%; }
 <!-- HERO: Two framed images with text overlay -->
 <div class="hero">
   <div class="hero-img hero-frame-left">
-    <img src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/singapore-hero.jfif" alt="Parkview Square exterior" fetchpriority="high">
+    <img src="/_vercel/image?url=https%3A%2F%2Fnriwancqvsrufldjvbnw.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fimages%2Fsingapore-hero.jfif&w=1600&q=75" alt="Parkview Square exterior" fetchpriority="high">
   </div>
   <div class="hero-img hero-frame-right">
-    <img src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/images__4_.jfif" alt="Atlas Bar interior" fetchpriority="high">
+    <img src="/_vercel/image?url=https%3A%2F%2Fnriwancqvsrufldjvbnw.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fimages%2Fimages__4_.jfif&w=1200&q=75" alt="Atlas Bar interior" fetchpriority="high">
   </div>
   <div class="hero-overlay">
     <span class="hero-label">Coming Soon</span>
@@ -712,7 +719,7 @@ img { max-width: 100%; }
 ════════════════════════════════════════════ -->
 <div class="split">
   <div class="split-img">
-    <img src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/collection_worth.png" alt="What is your collection worth" loading="lazy" decoding="async">
+    <img src="/_vercel/image?url=https%3A%2F%2Fnriwancqvsrufldjvbnw.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fimages%2Fcollection_worth.png&w=1200&q=75" alt="What is your collection worth" loading="lazy" decoding="async">
   </div>
   <div class="split-text">
     <span class="section-label">Expert Valuations</span>
@@ -751,7 +758,7 @@ img { max-width: 100%; }
 ════════════════════════════════════════════ -->
 <div class="split" style="border-top: 1px solid var(--border-dark);">
   <div class="split-img">
-    <img src="https://nriwancqvsrufldjvbnw.supabase.co/storage/v1/object/public/images/careers.png" alt="Careers at Stanley Gibbons" loading="lazy" decoding="async">
+    <img src="/_vercel/image?url=https%3A%2F%2Fnriwancqvsrufldjvbnw.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fimages%2Fcareers.png&w=1200&q=75" alt="Careers at Stanley Gibbons" loading="lazy" decoding="async">
   </div>
   <div class="split-text">
     <span class="section-label">Join the Team</span>
