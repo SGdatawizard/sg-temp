@@ -262,9 +262,11 @@ img { max-width: 100%; }
 
 /* ── ABOUT US ── */
 .about-us {
-  background: var(--navy);
+  background: var(--navy-mid);
   text-align: center;
   padding: 70px 40px;
+}
+.about-us-inner {
   max-width: 760px;
   margin: 0 auto;
 }
@@ -780,7 +782,9 @@ img { max-width: 100%; }
     </div>
   </div>
   <div class="carousel-slide" data-bg="/_vercel/image?url=https%3A%2F%2Fnriwancqvsrufldjvbnw.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fimages%2Fconcise-2026-mockup.jpg&w=1920&q=75">
-    <div class="slide-content" style="top:auto; bottom:70px; transform:none;">
+    <div class="slide-content">
+      <span class="slide-label">2026 Edition</span>
+      <span class="slide-title">Great Britain Concise Catalogue</span>
       <a class="slide-btn" href="https://sgbaldwins.com/about-us/stanley-gibbons" target="_blank" rel="noopener">Order Today</a>
     </div>
   </div>
@@ -861,14 +865,16 @@ img { max-width: 100%; }
 
 <!-- ABOUT US -->
 <div class="about-us">
-  <span class="about-us-label">About Us</span>
-  <h2 class="about-us-title">170 Years of Philatelic Excellence</h2>
-  <p class="about-us-body">
-    For 170 years, Stanley Gibbons has set the standard for stamp collecting. With Baldwin's
-    now part of the family, we're shaping a new destination for a broader world of collecting
-    — same standard, same leading specialists, more to discover.
-  </p>
-  <a class="about-us-link" href="https://sgbaldwins.com/about-us/stanley-gibbons" target="_blank" rel="noopener">Learn More</a>
+  <div class="about-us-inner">
+    <span class="about-us-label">About Us</span>
+    <h2 class="about-us-title">170 Years of Philatelic Excellence</h2>
+    <p class="about-us-body">
+      For 170 years, Stanley Gibbons has set the standard for stamp collecting. With Baldwin's
+      now part of the family, we're shaping a new destination for a broader world of collecting
+      — same standard, same leading specialists, more to discover.
+    </p>
+    <a class="about-us-link" href="https://sgbaldwins.com/about-us/stanley-gibbons" target="_blank" rel="noopener">Learn More</a>
+  </div>
 </div>
 
 <!-- GUARANTEE -->
