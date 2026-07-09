@@ -235,11 +235,13 @@ img { max-width: 100%; }
   transition: opacity 0.2s ease, transform 0.2s ease;
   z-index: 300;
 }
-.nav-item:hover .nav-dropdown,
-.nav-item:focus-within .nav-dropdown {
-  opacity: 1;
-  pointer-events: all;
-  transform: translateX(-50%) translateY(0);
+@media (min-width: 641px) {
+  .nav-item:hover .nav-dropdown,
+  .nav-item:focus-within .nav-dropdown {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateX(-50%) translateY(0);
+  }
 }
 .nav-dropdown a {
   display: block;
@@ -882,7 +884,7 @@ img { max-width: 100%; }
       </div>
       <div>
         <h3 class="footer-col-title">Customer Support</h3>
-        <p class="footer-col-body">09:00 am – 5:00 pm (Mon–Fri)<br><br>+44 1425 472 363</p>
+        <p class="footer-col-body">08:30 am – 5:00 pm (Mon–Fri)<br><br>+44 1425 472 363</p>
         <a class="footer-col-link" href="https://shop.stanleygibbons.com/pages/faq" target="_blank" rel="noopener">Contact Us</a>
       </div>
       <div>
