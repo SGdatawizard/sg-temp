@@ -235,11 +235,13 @@ img { max-width: 100%; }
   transition: opacity 0.2s ease, transform 0.2s ease;
   z-index: 300;
 }
-.nav-item:hover .nav-dropdown,
-.nav-item:focus-within .nav-dropdown {
-  opacity: 1;
-  pointer-events: all;
-  transform: translateX(-50%) translateY(0);
+@media (min-width: 641px) {
+  .nav-item:hover .nav-dropdown,
+  .nav-item:focus-within .nav-dropdown {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateX(-50%) translateY(0);
+  }
 }
 .nav-dropdown a {
   display: block;
@@ -522,8 +524,7 @@ img { max-width: 100%; }
   .team-photo-placeholder { font-size: 10px; letter-spacing: 0.2em; color: rgba(255,255,255,0.3); text-transform: uppercase; }
   .team-name { font-family: 'Libre Baskerville', serif; font-size: 18px; color: var(--navy); margin-bottom: 4px; }
   .team-role { font-size: 12px; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; }
-  .team-email { font-size: 12px; color: rgba(26,26,46,0.5); text-decoration: none; }
-  .team-email:hover { color: var(--gold); }
+  .team-email { font-size: 12px; color: rgba(255,255,255,0.75); text-decoration: none; }
 
   /* ── ADDRESS BLOCK ── */
   .address-block { background: var(--navy-mid); display: flex; align-items: stretch; }
@@ -534,6 +535,8 @@ img { max-width: 100%; }
   .address-title { font-family: 'Libre Baskerville', serif; font-size: 32px; font-weight: 400; color: var(--white); margin-bottom: 28px; line-height: 1.2; }
   .address-detail { font-family: 'Open Sans', sans-serif; font-size: 14px; line-height: 2; color: rgba(255,255,255,0.65); font-weight: 300; margin-bottom: 28px; }
   .address-detail strong { color: var(--gold); font-weight: 600; display: block; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; margin-top: 16px; margin-bottom: 4px; }
+  .address-email-link { color: rgba(255,255,255,0.75); text-decoration: none; transition: color 0.2s; }
+  .address-email-link:hover, .address-email-link:focus-visible { color: var(--gold); }
   .address-btn { font-size: 10px; letter-spacing: 0.25em; font-weight: 600; color: var(--gold); text-decoration: none; text-transform: uppercase; display: inline-flex; align-items: center; gap: 12px; border: 1px solid var(--gold); padding: 12px 24px; transition: background 0.3s, color 0.3s; }
   .address-btn:hover { background: var(--gold); color: var(--navy); }
 
@@ -783,6 +786,8 @@ img { max-width: 100%; }
       Parkview Square<br>
       600 North Bridge Road<br>
       Singapore 188778
+      <strong>Email</strong>
+      <a class="address-email-link" href="mailto:singapore@stanleygibbons.com">singapore@stanleygibbons.com</a>
       <strong>Appointments</strong>
       Visits are by appointment. Please contact us to arrange a convenient time for valuations, viewings or consultations.
       <strong>Opening Hours</strong>
@@ -790,7 +795,7 @@ img { max-width: 100%; }
     </div>
     <a class="address-btn" href="https://www.google.com/maps/place/Parkview+Square/@1.3000991,103.8483694,14.75z" target="_blank" rel="noopener">Get Directions</a>
     &nbsp;&nbsp;
-    <a class="address-btn" href="mailto:cfernando@stanleygibbons.com?subject=Appointment%20Request" style="margin-top:12px;">Book Appointment</a>
+    <a class="address-btn" href="mailto:singapore@stanleygibbons.com?subject=Appointment%20Request" style="margin-top:12px;">Book Appointment</a>
   </div>
 </div>
 
