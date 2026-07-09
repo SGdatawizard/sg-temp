@@ -117,14 +117,25 @@ img { max-width: 100%; }
 }
 .header-top-center { flex: 1; text-align: center; }
 .header-top-right {
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  color: var(--navy-mid);
-  font-weight: 500;
   flex-shrink: 0;
-  text-align: right;
   min-width: 180px;
+  text-align: right;
 }
+.header-sell-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gold);
+  color: var(--white);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 10px 24px;
+  transition: background 0.2s ease, opacity 0.2s ease;
+}
+.header-sell-btn:hover, .header-sell-btn:focus-visible { background: #b3944a; }
 
 /* ── NAV STRIP ── */
 .nav-strip {
@@ -407,7 +418,8 @@ img { max-width: 100%; }
   .header-top { padding: 12px 20px; flex-wrap: wrap; }
   .header-top-left .warrant { height: 60px; }
   .header-top-left .sg-logo { height: 44px; }
-  .header-top-right { display: none; }
+  .header-top-right { min-width: 0; }
+  .header-sell-btn { padding: 8px 16px; font-size: 10px; }
   .nav-inner { padding: 0 16px; }
   .footer-cols { grid-template-columns: 1fr; gap: 32px; }
   .footer-nav { gap: 20px; }
@@ -690,7 +702,9 @@ img { max-width: 100%; }
     <h1 class="wordmark">Home of Stamp Collecting</h1>
     <span class="tagline">Established 1856</span>
   </div>
-  <div class="header-top-right">399 Strand, WC2R 0LP</div>
+  <div class="header-top-right">
+    <a class="header-sell-btn" href="https://sgbaldwins.com/sell/how-to-sell" target="_blank" rel="noopener">Sell</a>
+  </div>
 </div>
 
 <!-- NAV STRIP -->
@@ -844,7 +858,7 @@ img { max-width: 100%; }
   <div class="editorial-text">
     <span class="editorial-label">Asia Pacific</span>
     <h2 class="editorial-title">New Singapore Office</h2>
-    <p class="editorial-body">Stanley Gibbons is expanding its global footprint with the opening of a new Asia Pacific office in Singapore. A landmark moment for the world's oldest and most trusted philatelic company, bringing 170 years of expertise to collectors across the region.</p>
+    <p class="editorial-body">Stanley Gibbons is expanding its global footprint with the opening of a new Asia Pacific office in Singapore. A landmark moment for the world's oldest and most trusted philatelic company — bringing 170 years of expertise to collectors across the region.</p>
     <a class="editorial-link" href="singapore.html">Discover more</a>
   </div>
 </div>
@@ -856,8 +870,8 @@ img { max-width: 100%; }
     <h2 class="about-us-title">170 Years of Philatelic Excellence</h2>
     <p class="about-us-body">
       For 170 years, Stanley Gibbons has set the standard for stamp collecting. With Baldwin's
-      now part of the family, we're shaping a new destination for a broader world of collecting.
-      The same standard, same leading specialists, even more to discover.
+      now part of the family, we're shaping a new destination for a broader world of collecting
+      — same standard, same leading specialists, more to discover.
     </p>
     <a class="about-us-link" href="https://sgbaldwins.com/about-us/stanley-gibbons" target="_blank" rel="noopener">Learn More</a>
   </div>
